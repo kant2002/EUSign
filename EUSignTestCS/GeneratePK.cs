@@ -31,9 +31,9 @@ namespace EUSignTestCS
 			uaParamsView.UseDSAsKEP = false;
 			uaParamsView.AlgIndex = 0;
 			uaParamsView.DSIndex = 
-				(int)(IEUSignCP.EU_DS_UA_KEY_LENGTH.EC_257 - 1);
+				(int)(EU_DS_UA_KEY_LENGTH.EC_257 - 1);
 			uaParamsView.KEPIndex = 
-				(int)(IEUSignCP.EU_KEP_UA_KEY_LENGTH.EC_431 - 1);
+				(int)(EU_KEP_UA_KEY_LENGTH.EC_431 - 1);
 		}
 
 		private void SetDefaultRSAParams()
@@ -41,7 +41,7 @@ namespace EUSignTestCS
 			rsaParamsView.AlgIndex = 0;
 			rsaParamsView.UseKEP = false;
 			rsaParamsView.DSIndex = 
-				(int)(IEUSignCP.EU_DS_RSA_KEY_LENGTH.RSA_2048 - 1);
+				(int)(EU_DS_RSA_KEY_LENGTH.RSA_2048 - 1);
 		}
 
 		private void EUGeneratePK_Shown(object sender, EventArgs e)
@@ -141,15 +141,15 @@ namespace EUSignTestCS
 				AdditionalControls.EU_GEN_KEY_TYPE.DSTU4145_RSA); 
 
 			int UAKeysType = genUA ?
-				(int)IEUSignCP.EU_KEYS_TYPE.DSTU_AND_ECDH_WITH_GOSTS :
-				(int)IEUSignCP.EU_KEYS_TYPE.NONE;
+				(int)EU_KEYS_TYPE.DSTU_AND_ECDH_WITH_GOSTS :
+				(int)EU_KEYS_TYPE.NONE;
 			int UADSKeysSpec = genUA ? (uaParamsView.DSIndex + 1) : 0;
 			int UAKEPKeysSpec = genUAKEP ? (uaParamsView.KEPIndex + 1) : 0;
 			string UAParamsPath = genUA ? uaParamsView.ParamsPath : "";
 
 			int intlKeysType = genRSA ?
-				(int)IEUSignCP.EU_KEYS_TYPE.RSA_WITH_SHA :
-				(int)IEUSignCP.EU_KEYS_TYPE.NONE;
+				(int)EU_KEYS_TYPE.RSA_WITH_SHA :
+				(int)EU_KEYS_TYPE.NONE;
 			int intlKeysSpec = genRSA ? (rsaParamsView.DSIndex + 1) : 0;
 			string intlParamsPath = genRSA ? rsaParamsView.ParamsPath : "";
 

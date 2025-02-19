@@ -869,14 +869,14 @@ namespace EUSignTestCS.TabPages
 			string envDataString;
 			byte[] devDataBinary;
 			bool signData;
-			IEUSignCP.EU_CONTENT_ENC_ALGO_TYPE AlgoType;
+			EU_CONTENT_ENC_ALGO_TYPE AlgoType;
 			IEUSignCP.EU_SENDER_INFO senderInfo;
 			int error;
 
 			dataBinary = TestData.GetByteArray();
 			dataString = TestData.GetString();
 
-			AlgoType = IEUSignCP.EU_CONTENT_ENC_ALGO_TYPE.AES_128_CBC;
+			AlgoType = EU_CONTENT_ENC_ALGO_TYPE.AES_128_CBC;
 			signData = true;
 
 			if (!GetOwnEnvelopCertificate(
@@ -1124,10 +1124,10 @@ namespace EUSignTestCS.TabPages
 			string fileExtension;
 			string issuer, serial;
 			byte[] certificate;
-			IEUSignCP.EU_CONTENT_ENC_ALGO_TYPE AlgoType;
+			EU_CONTENT_ENC_ALGO_TYPE AlgoType;
 			int error;
 
-			AlgoType = IEUSignCP.EU_CONTENT_ENC_ALGO_TYPE.AES_128_CBC;
+			AlgoType = EU_CONTENT_ENC_ALGO_TYPE.AES_128_CBC;
 
 			fileExtension = Path.GetExtension(fileToEnvelop);
 			fileEnveloped = fileToEnvelop + ".p7e";

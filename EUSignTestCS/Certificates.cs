@@ -145,46 +145,46 @@ namespace EUSignTestCS
 			{
 				case EU_CERTIFICATE_TYPE.CERT_TYPE_ALL:
 				{
-					Update(IEUSignCP.EU_SUBJECT_TYPE.UNDIFFERENCED, 0);
+					Update(EU_SUBJECT_TYPE.UNDIFFERENCED, 0);
 					break;
 				}
 				case EU_CERTIFICATE_TYPE.CERT_TYPE_CA:
 				{
-					Update(IEUSignCP.EU_SUBJECT_TYPE.CA, 0);
+					Update(EU_SUBJECT_TYPE.CA, 0);
 					break;
 				}
 				case EU_CERTIFICATE_TYPE.CERT_TYPE_CA_ALL:
 				{
-					Update(IEUSignCP.EU_SUBJECT_TYPE.CA_SERVER,
-						IEUSignCP.EU_SUBJECT_SUB_TYPE.CA_SERVER_UNDIFFERENCED);
+					Update(EU_SUBJECT_TYPE.CA_SERVER,
+						EU_SUBJECT_SUB_TYPE.CA_SERVER_UNDIFFERENCED);
 					break;
 				}
 				case EU_CERTIFICATE_TYPE.CERT_TYPE_CA_CMP:
 				{
-					Update(IEUSignCP.EU_SUBJECT_TYPE.CA_SERVER,
-						IEUSignCP.EU_SUBJECT_SUB_TYPE.CA_SERVER_CMP);
+					Update(EU_SUBJECT_TYPE.CA_SERVER,
+						EU_SUBJECT_SUB_TYPE.CA_SERVER_CMP);
 					break;
 				}
 				case EU_CERTIFICATE_TYPE.CERT_TYPE_CA_OCSP:
 				{
-					Update(IEUSignCP.EU_SUBJECT_TYPE.CA_SERVER,
-						IEUSignCP.EU_SUBJECT_SUB_TYPE.CA_SERVER_OCSP);
+					Update(EU_SUBJECT_TYPE.CA_SERVER,
+						EU_SUBJECT_SUB_TYPE.CA_SERVER_OCSP);
 					break;
 				}
 				case EU_CERTIFICATE_TYPE.CERT_TYPE_CA_TSP:
 				{
-					Update(IEUSignCP.EU_SUBJECT_TYPE.CA_SERVER,
-						IEUSignCP.EU_SUBJECT_SUB_TYPE.CA_SERVER_TSP);
+					Update(EU_SUBJECT_TYPE.CA_SERVER,
+						EU_SUBJECT_SUB_TYPE.CA_SERVER_TSP);
 					break;
 				}
 				case EU_CERTIFICATE_TYPE.CERT_TYPE_END_USER:
 				{
-					Update(IEUSignCP.EU_SUBJECT_TYPE.END_USER, 0);
+					Update(EU_SUBJECT_TYPE.END_USER, 0);
 					break;
 				}
 				case EU_CERTIFICATE_TYPE.CERT_TYPE_ADMIN:
 				{
-					Update(IEUSignCP.EU_SUBJECT_TYPE.RA_ADMINISTRATOR, 0);
+					Update(EU_SUBJECT_TYPE.RA_ADMINISTRATOR, 0);
 					break;
 				}
 				default: break;
@@ -318,8 +318,8 @@ namespace EUSignTestCS
 				listView.SelectedItems.Count > 0;
 		}
 
-		private void Update(IEUSignCP.EU_SUBJECT_TYPE subjType, 
-			IEUSignCP.EU_SUBJECT_SUB_TYPE subjSubType)
+		private void Update(EU_SUBJECT_TYPE subjType, 
+			EU_SUBJECT_SUB_TYPE subjSubType)
 		{
 			listView.Items.Clear();
 			listView_SelectedIndexChanged(null, null);

@@ -146,10 +146,10 @@ namespace EUSignTestCS.TabPages
 				case SIGN_CONTAINER_TYPE.CADES:
 					signTypes = new ComboBoxItem[] {
 						new ComboBoxItem(
-							(int) IEUSignCP.EU_CADES_TYPE.DETACHED, 
+							(int) EU_CADES_TYPE.DETACHED, 
 							"Підпис та дані в окремих файлах (detached)"), 
 						new ComboBoxItem(
-							(int) IEUSignCP.EU_CADES_TYPE.ENVELOPED, 
+							(int) EU_CADES_TYPE.ENVELOPED, 
 							"Підпис та дані в одному файлі (enveloped)")
 					};
 					break;
@@ -160,10 +160,10 @@ namespace EUSignTestCS.TabPages
 				case SIGN_CONTAINER_TYPE.XADES:
 					signTypes = new ComboBoxItem[] {
 						new ComboBoxItem(
-							(int) IEUSignCP.EU_XADES_TYPE.DETACHED, 
+							(int) EU_XADES_TYPE.DETACHED, 
 							"Підпис та дані в окремих файлах (detached)"), 
 						new ComboBoxItem(
-							(int) IEUSignCP.EU_XADES_TYPE.ENVELOPED,
+							(int) EU_XADES_TYPE.ENVELOPED,
 							"Підпис та дані в одному файлі (enveloped)")
 					};
 					break;
@@ -172,10 +172,10 @@ namespace EUSignTestCS.TabPages
 				case SIGN_CONTAINER_TYPE.ASICE:
 					signTypes = new ComboBoxItem[] {
 						new ComboBoxItem(
-							(int) IEUSignCP.EU_ASIC_SIGN_TYPE.CADES, 
+							(int) EU_ASIC_SIGN_TYPE.CADES, 
 							"CAdES"), 
 						new ComboBoxItem(
-							(int) IEUSignCP.EU_ASIC_SIGN_TYPE.XADES,
+							(int) EU_ASIC_SIGN_TYPE.XADES,
 							"XAdES")
 					};
 					break;
@@ -216,14 +216,14 @@ namespace EUSignTestCS.TabPages
 		}
 
 		private ComboBoxItem[] getSignFormats(
-			SIGN_CONTAINER_TYPE type, IEUSignCP.EU_ASIC_SIGN_TYPE asicSignType)
+			SIGN_CONTAINER_TYPE type, EU_ASIC_SIGN_TYPE asicSignType)
 		{
 			ComboBoxItem[] signFormats = { };
 
 			if (type == SIGN_CONTAINER_TYPE.CADES ||
 				((type == SIGN_CONTAINER_TYPE.ASICS ||
 					type == SIGN_CONTAINER_TYPE.ASICE) &&
-					asicSignType == IEUSignCP.EU_ASIC_SIGN_TYPE.CADES))
+					asicSignType == EU_ASIC_SIGN_TYPE.CADES))
 			{
 				signFormats = new ComboBoxItem[] {
 					new ComboBoxItem(
@@ -246,20 +246,20 @@ namespace EUSignTestCS.TabPages
 			else if (type == SIGN_CONTAINER_TYPE.XADES ||
 				((type == SIGN_CONTAINER_TYPE.ASICS ||
 					type == SIGN_CONTAINER_TYPE.ASICE) &&
-					asicSignType == IEUSignCP.EU_ASIC_SIGN_TYPE.XADES))
+					asicSignType == EU_ASIC_SIGN_TYPE.XADES))
 			{
 				signFormats = new ComboBoxItem[] {
 					new ComboBoxItem(
-						(int) IEUSignCP.EU_XADES_SIGN_LEVEL.B_LTA,
+						(int) EU_XADES_SIGN_LEVEL.B_LTA,
 						"XAdES-B-LTA – е-підпис для тривалого (архівного) зберігання"),
 					new ComboBoxItem(
-						(int) IEUSignCP.EU_XADES_SIGN_LEVEL.B_LT,
+						(int) EU_XADES_SIGN_LEVEL.B_LT,
 						"XAdES-B-LT – додаються повні дані для перевірки"),
 					new ComboBoxItem(
-						(int) IEUSignCP.EU_XADES_SIGN_LEVEL.B_T,
+						(int) EU_XADES_SIGN_LEVEL.B_T,
 						"XAdES-B-T – додається час підписання файлу КЕП"),
 					new ComboBoxItem(
-						(int) IEUSignCP.EU_XADES_SIGN_LEVEL.B_B,
+						(int) EU_XADES_SIGN_LEVEL.B_B,
 						"XAdES-B-B – базова перевірка достовірності і цілісності даних"),
 				};
 			}
@@ -267,16 +267,16 @@ namespace EUSignTestCS.TabPages
 			{
 				signFormats = new ComboBoxItem[] {
 					new ComboBoxItem(
-						(int) IEUSignCP.EU_PADES_SIGN_LEVEL.B_LTA,
+						(int) EU_PADES_SIGN_LEVEL.B_LTA,
 						"PAdES-B-LTA – е-підпис для тривалого (архівного) зберігання"),
 					new ComboBoxItem(
-						(int) IEUSignCP.EU_PADES_SIGN_LEVEL.B_LT,
+						(int) EU_PADES_SIGN_LEVEL.B_LT,
 						"PAdES-B-LT – додаються повні дані для перевірки"),
 					new ComboBoxItem(
-						(int) IEUSignCP.EU_PADES_SIGN_LEVEL.B_T,
+						(int) EU_PADES_SIGN_LEVEL.B_T,
 						"PAdES-B-T – додається час підписання файлу КЕП"),
 					new ComboBoxItem(
-						(int) IEUSignCP.EU_PADES_SIGN_LEVEL.B_B,
+						(int) EU_PADES_SIGN_LEVEL.B_B,
 						"PAdES-B-B – базова перевірка достовірності і цілісності даних"),
 				};
 			}
@@ -300,12 +300,12 @@ namespace EUSignTestCS.TabPages
 				isInitialized && (!isASiC || isPrivateKeyReaded));
 			setComboboxItems(comboBoxSignAlgo, getSignAlgo(signContainerType), isPrivateKeyReaded);
 
-			IEUSignCP.EU_ASIC_SIGN_TYPE asicSignType =  signTypes.Length > 0 ?
-				(IEUSignCP.EU_ASIC_SIGN_TYPE) signTypes[0].Value : 
-				IEUSignCP.EU_ASIC_SIGN_TYPE.UNKNOWN;
+			EU_ASIC_SIGN_TYPE asicSignType =  signTypes.Length > 0 ?
+				(EU_ASIC_SIGN_TYPE) signTypes[0].Value : 
+				EU_ASIC_SIGN_TYPE.UNKNOWN;
 			setComboboxItems(comboBoxSignFormat,
 				getSignFormats(signContainerType,
-				(IEUSignCP.EU_ASIC_SIGN_TYPE)asicSignType), isPrivateKeyReaded);
+				(EU_ASIC_SIGN_TYPE)asicSignType), isPrivateKeyReaded);
 
 			checkBoxHashSign.Enabled = isInitialized && isHashSupported;
 			checkBoxAddContentTimeStamp.Enabled = isPrivateKeyReaded &&
@@ -326,13 +326,13 @@ namespace EUSignTestCS.TabPages
 				return;
 			}
 
-			IEUSignCP.EU_ASIC_SIGN_TYPE asicSignType = comboBoxSignType.SelectedIndex >= 0 ?
-				(IEUSignCP.EU_ASIC_SIGN_TYPE) ((ComboBoxItem) comboBoxSignType.Items[
+			EU_ASIC_SIGN_TYPE asicSignType = comboBoxSignType.SelectedIndex >= 0 ?
+				(EU_ASIC_SIGN_TYPE) ((ComboBoxItem) comboBoxSignType.Items[
 					comboBoxSignType.SelectedIndex]).Value :
-				IEUSignCP.EU_ASIC_SIGN_TYPE.UNKNOWN;
+				EU_ASIC_SIGN_TYPE.UNKNOWN;
 			setComboboxItems(comboBoxSignFormat,
 				getSignFormats(signContainerType,
-				(IEUSignCP.EU_ASIC_SIGN_TYPE)asicSignType), true);
+				(EU_ASIC_SIGN_TYPE)asicSignType), true);
 		}
 
 		private void checkBoxHashSign_CheckedChanged(
@@ -596,10 +596,10 @@ namespace EUSignTestCS.TabPages
 			}
 			else if (signContainerType == SIGN_CONTAINER_TYPE.CADES)
 			{
-				IEUSignCP.EU_CADES_TYPE cadesType = (IEUSignCP.EU_CADES_TYPE)
+				EU_CADES_TYPE cadesType = (EU_CADES_TYPE)
 					((ComboBoxItem)comboBoxSignType.SelectedItem).Value;
 				bool appendCert = true;
-				bool external = cadesType == IEUSignCP.EU_CADES_TYPE.DETACHED;
+				bool external = cadesType == EU_CADES_TYPE.DETACHED;
 
 				switch (signAlgo)
 				{
@@ -660,10 +660,10 @@ namespace EUSignTestCS.TabPages
 
 			SIGN_CONTAINER_TYPE signContainerType = (SIGN_CONTAINER_TYPE)
 				comboBoxSignContainerType.SelectedIndex;
-			IEUSignCP.EU_CADES_TYPE cadesType = (IEUSignCP.EU_CADES_TYPE)
+			EU_CADES_TYPE cadesType = (EU_CADES_TYPE)
 				((ComboBoxItem)comboBoxSignType.SelectedItem).Value;
 			bool appendCert = true;
-			bool external = cadesType == IEUSignCP.EU_CADES_TYPE.DETACHED;
+			bool external = cadesType == EU_CADES_TYPE.DETACHED;
 
 			if (signContainerType != SIGN_CONTAINER_TYPE.CADES)
 			{
@@ -825,9 +825,9 @@ namespace EUSignTestCS.TabPages
 			}
 			else if (signContainerType == SIGN_CONTAINER_TYPE.CADES)
 			{
-				IEUSignCP.EU_CADES_TYPE cadesType = (IEUSignCP.EU_CADES_TYPE)
+				EU_CADES_TYPE cadesType = (EU_CADES_TYPE)
 					((ComboBoxItem)comboBoxSignType.SelectedItem).Value;
-				bool external = cadesType == IEUSignCP.EU_CADES_TYPE.DETACHED;
+				bool external = cadesType == EU_CADES_TYPE.DETACHED;
 
 				if (external)
 				{
@@ -921,9 +921,9 @@ namespace EUSignTestCS.TabPages
 				}
 			}
 
-			IEUSignCP.EU_CADES_TYPE cadesType = (IEUSignCP.EU_CADES_TYPE)
+			EU_CADES_TYPE cadesType = (EU_CADES_TYPE)
 				((ComboBoxItem)comboBoxSignType.SelectedItem).Value;
-			bool external = cadesType == IEUSignCP.EU_CADES_TYPE.DETACHED;
+			bool external = cadesType == EU_CADES_TYPE.DETACHED;
 
 			if (external)
 			{
@@ -1121,9 +1121,9 @@ namespace EUSignTestCS.TabPages
 			switch (signContainerType)
 			{
 				case SIGN_CONTAINER_TYPE.CADES:
-					IEUSignCP.EU_CADES_TYPE cadesType = (IEUSignCP.EU_CADES_TYPE)
+					EU_CADES_TYPE cadesType = (EU_CADES_TYPE)
 						((ComboBoxItem)comboBoxSignType.SelectedItem).Value;
-					bool external = cadesType == IEUSignCP.EU_CADES_TYPE.DETACHED;
+					bool external = cadesType == EU_CADES_TYPE.DETACHED;
 
 					signedFileName = fileName + ".p7s";
 
@@ -1183,7 +1183,7 @@ namespace EUSignTestCS.TabPages
 					break;
 
 				case SIGN_CONTAINER_TYPE.PADES:
-					IEUSignCP.EU_PADES_SIGN_LEVEL padesSignLevel = (IEUSignCP.EU_PADES_SIGN_LEVEL)
+					EU_PADES_SIGN_LEVEL padesSignLevel = (EU_PADES_SIGN_LEVEL)
 						((ComboBoxItem)comboBoxSignFormat.SelectedItem).Value;
 
 					signedFileName = fileName + ".sig.pdf";
@@ -1204,9 +1204,9 @@ namespace EUSignTestCS.TabPages
 					break;
 
 				case SIGN_CONTAINER_TYPE.XADES:
-					IEUSignCP.EU_XADES_TYPE xadesType = (IEUSignCP.EU_XADES_TYPE)
+					EU_XADES_TYPE xadesType = (EU_XADES_TYPE)
 						((ComboBoxItem)comboBoxSignType.SelectedItem).Value;
-					IEUSignCP.EU_XADES_SIGN_LEVEL xadesSignLevel = (IEUSignCP.EU_XADES_SIGN_LEVEL)
+					EU_XADES_SIGN_LEVEL xadesSignLevel = (EU_XADES_SIGN_LEVEL)
 						((ComboBoxItem)comboBoxSignFormat.SelectedItem).Value;
 
 					signedFileName = fileName + ".xades.xml";
@@ -1230,13 +1230,13 @@ namespace EUSignTestCS.TabPages
 
 				case SIGN_CONTAINER_TYPE.ASICS:
 				case SIGN_CONTAINER_TYPE.ASICE:
-					IEUSignCP.EU_ASIC_TYPE asicType =
+					EU_ASIC_TYPE asicType =
 						signContainerType == SIGN_CONTAINER_TYPE.ASICS ?
-							IEUSignCP.EU_ASIC_TYPE.S :
-							IEUSignCP.EU_ASIC_TYPE.E;
-					IEUSignCP.EU_ASIC_SIGN_TYPE asicSignType = (IEUSignCP.EU_ASIC_SIGN_TYPE)
+							EU_ASIC_TYPE.S :
+							EU_ASIC_TYPE.E;
+					EU_ASIC_SIGN_TYPE asicSignType = (EU_ASIC_SIGN_TYPE)
 						((ComboBoxItem)comboBoxSignType.SelectedItem).Value;
-					IEUSignCP.EU_ASIC_SIGN_LEVEL asicSignLevel = (IEUSignCP.EU_ASIC_SIGN_LEVEL)
+					EU_ASIC_SIGN_LEVEL asicSignLevel = (EU_ASIC_SIGN_LEVEL)
 						((ComboBoxItem)comboBoxSignFormat.SelectedItem).Value;
 					signedFileName = fileName + 
 						(signContainerType == SIGN_CONTAINER_TYPE.ASICS ? 
@@ -1390,9 +1390,9 @@ namespace EUSignTestCS.TabPages
 			}
 			else
 			{
-				IEUSignCP.EU_CADES_TYPE cadesType = (IEUSignCP.EU_CADES_TYPE)
+				EU_CADES_TYPE cadesType = (EU_CADES_TYPE)
 					((ComboBoxItem)comboBoxSignType.SelectedItem).Value;
-				bool external = cadesType == IEUSignCP.EU_CADES_TYPE.DETACHED;
+				bool external = cadesType == EU_CADES_TYPE.DETACHED;
 
 				error = IEUSignCP.IsFileAlreadySigned(fileName,
 					out isAlreadySigned);
@@ -1545,7 +1545,7 @@ namespace EUSignTestCS.TabPages
 
 			if (containerType == SIGN_CONTAINER_TYPE.UNKNOWN)
 			{
-				IEUSignCP.EU_ASIC_TYPE asicType = IEUSignCP.EU_ASIC_TYPE.UNKNOWN;
+				EU_ASIC_TYPE asicType = EU_ASIC_TYPE.UNKNOWN;
 
 				error = IEUSignCP.ASiCGetASiCType(fileData, out asicType);
 				if (error != IEUSignCP.EU_ERROR_NONE)
@@ -1560,7 +1560,7 @@ namespace EUSignTestCS.TabPages
 				}
 				else
 				{
-					containerType = asicType == IEUSignCP.EU_ASIC_TYPE.S ? 
+					containerType = asicType == EU_ASIC_TYPE.S ? 
 						SIGN_CONTAINER_TYPE.ASICS : SIGN_CONTAINER_TYPE.ASICE;
 				}
 			}
@@ -1742,7 +1742,7 @@ namespace EUSignTestCS.TabPages
 					if (!EUUtils.ReadFile(fileWithSign, out xadesData))
 						return;
 
-					IEUSignCP.EU_XADES_TYPE xadesType;
+					EU_XADES_TYPE xadesType;
 
 					error = IEUSignCP.XAdESGetType(xadesData, out xadesType);
 					if (error != IEUSignCP.EU_ERROR_NONE)
@@ -1751,7 +1751,7 @@ namespace EUSignTestCS.TabPages
 						return;
 					}
 
-					if (xadesType == IEUSignCP.EU_XADES_TYPE.DETACHED)
+					if (xadesType == EU_XADES_TYPE.DETACHED)
 					{
 						error = IEUSignCP.XAdESGetSignReferences(
 							0, xadesData, out references);
@@ -1794,7 +1794,7 @@ namespace EUSignTestCS.TabPages
 							return;
 						}
 
-						if (xadesType == IEUSignCP.EU_XADES_TYPE.ENVELOPED)
+						if (xadesType == EU_XADES_TYPE.ENVELOPED)
 						{
 							if (references.Length != 1 && references[0] != "")
 							{
@@ -2109,7 +2109,7 @@ namespace EUSignTestCS.TabPages
 					if (!EUUtils.ReadFile(fileWithSign, out xadesData))
 						return;
 
-					IEUSignCP.EU_XADES_TYPE xadesType;
+					EU_XADES_TYPE xadesType;
 
 					error = IEUSignCP.XAdESGetSignsCount(
 						xadesData, out signCount);
@@ -2135,7 +2135,7 @@ namespace EUSignTestCS.TabPages
 						return;
 					}
 
-					if (xadesType == IEUSignCP.EU_XADES_TYPE.DETACHED)
+					if (xadesType == EU_XADES_TYPE.DETACHED)
 					{
 						error = IEUSignCP.XAdESGetSignReferences(
 							curSignFileIndex, xadesData, out references);
@@ -2180,7 +2180,7 @@ namespace EUSignTestCS.TabPages
 							return;
 						}
 
-						if (xadesType == IEUSignCP.EU_XADES_TYPE.ENVELOPED)
+						if (xadesType == EU_XADES_TYPE.ENVELOPED)
 						{
 							if (references.Length != 1 && references[0] != "")
 							{
@@ -3937,17 +3937,17 @@ namespace EUSignTestCS.TabPages
 			}
 
 			int selectedSignTypeIndex = comboBoxSignFormat.SelectedIndex;
-			IEUSignCP.EU_XADES_SIGN_LEVEL[] signTypes =
+			EU_XADES_SIGN_LEVEL[] signTypes =
 			{
-				IEUSignCP.EU_XADES_SIGN_LEVEL.B_B,
-				IEUSignCP.EU_XADES_SIGN_LEVEL.B_T,
-				IEUSignCP.EU_XADES_SIGN_LEVEL.B_LT,
-				IEUSignCP.EU_XADES_SIGN_LEVEL.B_LTA,
+				EU_XADES_SIGN_LEVEL.B_B,
+				EU_XADES_SIGN_LEVEL.B_T,
+				EU_XADES_SIGN_LEVEL.B_LT,
+				EU_XADES_SIGN_LEVEL.B_LTA,
 			};
-			IEUSignCP.EU_XADES_SIGN_LEVEL signType = signTypes[selectedSignTypeIndex];
+			EU_XADES_SIGN_LEVEL signType = signTypes[selectedSignTypeIndex];
 
 			error = IEUSignCP.ASiCSignData(
-				IEUSignCP.EU_ASIC_TYPE.E, IEUSignCP.EU_ASIC_SIGN_TYPE.XADES,
+				EU_ASIC_TYPE.E, EU_ASIC_SIGN_TYPE.XADES,
 				signType, references, referencesData, out signedData);
 			if (error != IEUSignCP.EU_ERROR_NONE)
 			{

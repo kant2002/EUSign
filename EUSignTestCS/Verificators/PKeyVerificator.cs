@@ -26,12 +26,12 @@ namespace EUSignTestCS.Verificators
 			public string extKeyUsage = null;
 
 			public int UAKeysType = IEUSignCP.EU_CERT_KEY_TYPE_DSTU4145;
-			public int UADSKeysSpec = (int)IEUSignCP.EU_DS_UA_KEY_LENGTH.EC_257;
+			public int UADSKeysSpec = (int)EU_DS_UA_KEY_LENGTH.EC_257;
 			public bool useUADSKeyAsKEP = false;
-			public int UAKEPKeysSpec = (int)IEUSignCP.EU_KEP_UA_KEY_LENGTH.EC_431;
+			public int UAKEPKeysSpec = (int)EU_KEP_UA_KEY_LENGTH.EC_431;
 			public string UAParamsPath = "";
 			public int intKeysType = IEUSignCP.EU_CERT_KEY_TYPE_UNKNOWN;
-			public int intKeysSpec = (int)IEUSignCP.EU_DS_RSA_KEY_LENGTH.RSA_2048;
+			public int intKeysSpec = (int)EU_DS_RSA_KEY_LENGTH.RSA_2048;
 			public string intParamsPath = "";
 
 			public GenKeyParameters(string pkName, string pkPassword)
@@ -726,13 +726,13 @@ namespace EUSignTestCS.Verificators
 
 				keyInfosString += (i + 1) + ". Інформація про ключ:\n";
 				keyInfosString += "\tТип ключа: ";
-				switch ((IEUSignCP.EU_KEYS_TYPE) info.keyType)
+				switch ((EU_KEYS_TYPE) info.keyType)
 				{
-					case IEUSignCP.EU_KEYS_TYPE.DSTU_AND_ECDH_WITH_GOSTS:
+					case EU_KEYS_TYPE.DSTU_AND_ECDH_WITH_GOSTS:
 						keyInfosString += "ДСТУ 4145-2002\n";
 						break;
 
-					case IEUSignCP.EU_KEYS_TYPE.RSA_WITH_SHA:
+					case EU_KEYS_TYPE.RSA_WITH_SHA:
 						keyInfosString += "RSA\n";
 						break;
 

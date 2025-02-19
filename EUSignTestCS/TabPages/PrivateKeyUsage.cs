@@ -580,12 +580,12 @@ namespace EUSignTestCS.TabPages
 		{
 			int error;
 			bool makeNewCertForReadedKey = false;
-			int UAKeysType = (int)IEUSignCP.EU_KEYS_TYPE.DSTU_AND_ECDH_WITH_GOSTS;
-			int UADSKeysSpec = (int)IEUSignCP.EU_DS_UA_KEY_LENGTH.EC_257;
-			int UAKEPKeysSpec = (int)IEUSignCP.EU_KEP_UA_KEY_LENGTH.EC_431;
+			int UAKeysType = (int)EU_KEYS_TYPE.DSTU_AND_ECDH_WITH_GOSTS;
+			int UADSKeysSpec = (int)EU_DS_UA_KEY_LENGTH.EC_257;
+			int UAKEPKeysSpec = (int)EU_KEP_UA_KEY_LENGTH.EC_431;
 			bool useDSAsKEPKey = false;
 			string UAParamsPath = "";
-			int intlKeysType = (int)IEUSignCP.EU_KEYS_TYPE.NONE;
+			int intlKeysType = (int)EU_KEYS_TYPE.NONE;
 			int intlKeysSpec = 0;
 			string intlParamsPath = "";
 

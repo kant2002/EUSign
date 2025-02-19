@@ -133,7 +133,7 @@ namespace EUSignTestCS.AdditionalControls
 		private void UpdateDevicesListWithDefaultKeyMedia()
 		{
 			int error;
-			IEUSignCP.EU_KEY_MEDIA_SOURCE_TYPE sourceType;
+			EU_KEY_MEDIA_SOURCE_TYPE sourceType;
 			bool showErrors;
 			IEUSignCP.EU_KEY_MEDIA km;
 			TreeNodeCollection types = treeViewKMs.Nodes;
@@ -149,7 +149,7 @@ namespace EUSignTestCS.AdditionalControls
 				return;
 			}
 
-			if ((sourceType == IEUSignCP.EU_KEY_MEDIA_SOURCE_TYPE.OPERATOR) ||
+			if ((sourceType == EU_KEY_MEDIA_SOURCE_TYPE.OPERATOR) ||
 				(km.typeIndex >= 0 && types.Count < km.typeIndex))
 			{
 				UpdateDeviceListClick(null, null);
@@ -332,7 +332,7 @@ namespace EUSignTestCS.AdditionalControls
 		public void SaveKeyMediaToSettings()
 		{
 			int error;
-			IEUSignCP.EU_KEY_MEDIA_SOURCE_TYPE sourceType;
+			EU_KEY_MEDIA_SOURCE_TYPE sourceType;
 			bool showErrors;
 			IEUSignCP.EU_KEY_MEDIA km;
 
@@ -342,7 +342,7 @@ namespace EUSignTestCS.AdditionalControls
 			if (error != IEUSignCP.EU_ERROR_NONE)
 				return;
 
-			if (sourceType != IEUSignCP.EU_KEY_MEDIA_SOURCE_TYPE.OPERATOR)
+			if (sourceType != EU_KEY_MEDIA_SOURCE_TYPE.OPERATOR)
 				return;
 
 			km = this.KeyMedia;

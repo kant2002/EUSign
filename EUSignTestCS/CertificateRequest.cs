@@ -23,19 +23,19 @@ namespace EUSignTestCS
 
 			switch (subjSubType)
 			{
-				case (int)IEUSignCP.EU_SUBJECT_SUB_TYPE.CA_SERVER_CMP:
+				case (int)EU_SUBJECT_SUB_TYPE.CA_SERVER_CMP:
 					{
 						subjSubTypeString = "Сервер CMP ЦСК";
 						break;
 					}
 
-				case (int)IEUSignCP.EU_SUBJECT_SUB_TYPE.CA_SERVER_TSP:
+				case (int)EU_SUBJECT_SUB_TYPE.CA_SERVER_TSP:
 					{
 						subjSubTypeString = "Сервер TSP ЦСК";
 						break;
 					}
 
-				case (int)IEUSignCP.EU_SUBJECT_SUB_TYPE.CA_SERVER_OCSP:
+				case (int)EU_SUBJECT_SUB_TYPE.CA_SERVER_OCSP:
 					{
 						subjSubTypeString = "Сервер OCSP ЦСК";
 						break;
@@ -51,25 +51,25 @@ namespace EUSignTestCS
 
 			switch (subjType)
 			{
-				case (int)IEUSignCP.EU_SUBJECT_TYPE.CA:
+				case (int)EU_SUBJECT_TYPE.CA:
 				{
 					subjTypeString = "Сервер ЦСК";
 					break;
 				}
 
-				case (int)IEUSignCP.EU_SUBJECT_TYPE.CA_SERVER:
+				case (int)EU_SUBJECT_TYPE.CA_SERVER:
 				{
 					subjTypeString = getSubjectSubType(subjSubType);
 					break;
 				}
 
-				case (int)IEUSignCP.EU_SUBJECT_TYPE.RA_ADMINISTRATOR:
+				case (int)EU_SUBJECT_TYPE.RA_ADMINISTRATOR:
 				{
 					subjTypeString = "Адміністратор реєстрації";
 					break;
 				}
 
-				case (int)IEUSignCP.EU_SUBJECT_TYPE.END_USER:
+				case (int)EU_SUBJECT_TYPE.END_USER:
 				{
 					subjTypeString = "Користувач";
 					break;

@@ -145,7 +145,7 @@ namespace EUSignTestCS.TabPages
 			error = IEUSignCP.DevCtxOpenIDCard(
 				"ID-карта громадянина (БЕН)", comboBoxIDCardDesc.SelectedItem.ToString(),
 				textBoxIDCardPassword.Text,
-				(int)IEUSignCP.EU_DEV_CTX_IDCARD_PASSWORD_VERSION.VERSION_1 +
+				(int)EU_DEV_CTX_IDCARD_PASSWORD_VERSION.VERSION_1 +
 					comboBoxPasswordVersion.SelectedIndex,
 				out deviceContext);
 			if (error != IEUSignCP.EU_ERROR_NONE)
@@ -263,14 +263,14 @@ namespace EUSignTestCS.TabPages
             }
 
             if (comboBoxIDCardDataID.SelectedIndex <
-                (int)IEUSignCP.EU_DEV_CTX_IDCARD_DATA_ID.DG16)
+                (int)EU_DEV_CTX_IDCARD_DATA_ID.DG16)
             {
                 dataID = (byte)(comboBoxIDCardDataID.SelectedIndex + 1);
             }
             else
             {
                 dataID = (byte)(comboBoxIDCardDataID.SelectedIndex + 0x0D);
-                if (dataID > (byte)IEUSignCP.EU_DEV_CTX_IDCARD_DATA_ID.COM)
+                if (dataID > (byte)EU_DEV_CTX_IDCARD_DATA_ID.COM)
                     dataID++;
             }
 
@@ -335,14 +335,14 @@ namespace EUSignTestCS.TabPages
 			index = 0;
 
 			if (comboBoxIDCardDataID.SelectedIndex <
-				(int) IEUSignCP.EU_DEV_CTX_IDCARD_DATA_ID.DG16)
+				(int) EU_DEV_CTX_IDCARD_DATA_ID.DG16)
 			{
 				dataID = (byte) (comboBoxIDCardDataID.SelectedIndex + 1);
 			}
 			else
 			{
 				dataID = (byte)(comboBoxIDCardDataID.SelectedIndex + 0x0D);
-				if (dataID > (byte)IEUSignCP.EU_DEV_CTX_IDCARD_DATA_ID.COM)
+				if (dataID > (byte)EU_DEV_CTX_IDCARD_DATA_ID.COM)
 					dataID++;
 			}
 
@@ -356,9 +356,9 @@ namespace EUSignTestCS.TabPages
 				index, out data);
 			while (error == IEUSignCP.EU_ERROR_NONE)
 			{
-				if (dataID == (byte)IEUSignCP.EU_DEV_CTX_IDCARD_DATA_ID.DG32 ||
-					dataID == (byte)IEUSignCP.EU_DEV_CTX_IDCARD_DATA_ID.DG33 ||
-					dataID == (byte)IEUSignCP.EU_DEV_CTX_IDCARD_DATA_ID.DG38)
+				if (dataID == (byte)EU_DEV_CTX_IDCARD_DATA_ID.DG32 ||
+					dataID == (byte)EU_DEV_CTX_IDCARD_DATA_ID.DG33 ||
+					dataID == (byte)EU_DEV_CTX_IDCARD_DATA_ID.DG38)
 				{
 					error = IEUSignCP.DevCtxEnumIDCardDataChangeDate(
 						deviceContext, dataID,
@@ -482,14 +482,14 @@ namespace EUSignTestCS.TabPages
             }
 
             if (comboBoxIDCardDataID.SelectedIndex <
-                (int)IEUSignCP.EU_DEV_CTX_IDCARD_DATA_ID.DG16)
+                (int)EU_DEV_CTX_IDCARD_DATA_ID.DG16)
             {
                 dataID = (byte)(comboBoxIDCardDataID.SelectedIndex + 1);
             }
             else
             {
                 dataID = (byte)(comboBoxIDCardDataID.SelectedIndex + 0x0D);
-                if (dataID > (byte)IEUSignCP.EU_DEV_CTX_IDCARD_DATA_ID.COM)
+                if (dataID > (byte)EU_DEV_CTX_IDCARD_DATA_ID.COM)
                     dataID++;
             }
 
