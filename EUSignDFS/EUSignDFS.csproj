@@ -1,16 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net452</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>EUSignDFS.ico</ApplicationIcon>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System.IO.Compression" />
-    <Reference Include="System.IO.Compression.FileSystem" />
-  </ItemGroup>
   <ItemGroup>
     <None Include="EUSignCP.DLL_v1.3.1.36\DSTU4145CacheNB.cap" />
     <None Include="EUSignCP.DLL_v1.3.1.36\DSTU4145CachePB.cap" />
@@ -63,6 +59,9 @@
     <None Include="Resources\certificate.png" />
     <None Include="Resources\key.png" />
     <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EUSign\EUSign.csproj" />
   </ItemGroup>
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
       <Exec Command="COPY /Y $(MSBuildThisFileDirectory)EUSignCP.DLL_v1.3.1.36\* $(OutputPath)" />
