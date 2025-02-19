@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <NoWarn>$(NoWarn);WFO5001;WFO1000</NoWarn>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EUSign\EUSign.csproj" />
+  </ItemGroup>
+
+</Project>
