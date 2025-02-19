@@ -75,7 +75,7 @@ namespace EUSignCP
 
             IEUSignCP.EU_CERT_OWNER_INFO certOwnerInfo;
 
-            int error = IEUSignCP.ReadPrivateKey(out certOwnerInfo);
+            int error = IEUSignCP.ReadPrivateKey(default, out certOwnerInfo);
             if (error != IEUSignCP.EU_ERROR_NONE) throw new Exception(IEUSignCP.GetErrorDesc(error));
 
             IEUSignCP.EU_CERT_INFO_EX certInfoEx;
@@ -161,7 +161,8 @@ namespace EUSignCP
             error = IEUSignCP.GetCertificateInfoEx(certOwnerInfo.issuer, certOwnerInfo.serial, out certInfoEx);
             if (error != IEUSignCP.EU_ERROR_NONE) throw new Exception(IEUSignCP.GetErrorDesc(error));
             
-            if (certInfoEx.keyUsageBits != 16) 
+            if ((certInfoEx.keyUsageType & IEUSignCP.EU_KEY_USAGE_KEY_AGREEMENT) ==
+                        IEUSignCP.EU_KEY_USAGE_KEY_AGREEMENT) 
             {
                 throw new Exception("Обраний сертифікат отримувача не призначений для шифрування.\nОберіть інший сертифікат отримувача.");
             }
@@ -186,7 +187,8 @@ namespace EUSignCP
                 if (error == IEUSignCP.EU_WARNING_END_OF_ENUM) break;
                 if (error != IEUSignCP.EU_ERROR_NONE) throw new Exception(IEUSignCP.GetErrorDesc(error));
 
-                if (cert.keyUsageBits == 16)
+                if ((cert.keyUsageType & IEUSignCP.EU_KEY_USAGE_KEY_AGREEMENT) ==
+                        IEUSignCP.EU_KEY_USAGE_KEY_AGREEMENT)
                 {
                     error = IEUSignCP.GetCertificate(cert.issuer, cert.serial, out bCert);
                     if (error != IEUSignCP.EU_ERROR_NONE) throw new Exception(IEUSignCP.GetErrorDesc(error));
@@ -223,7 +225,7 @@ namespace EUSignCP
                 byte[] envelopedData;
 
                 int error = IEUSignCP.EnvelopData(Certificates.Recipient.CertInfoEx.issuer,
-                    Certificates.Recipient.CertInfoEx.serial, data, out envelopedData);
+                    Certificates.Recipient.CertInfoEx.serial, true, data, out envelopedData);
                 if (error != IEUSignCP.EU_ERROR_NONE) throw new Exception(IEUSignCP.GetErrorDesc(error));
 
                 using (FileStream fsOut = new FileStream(envelopedFileName, FileMode.Create, FileAccess.Write))
