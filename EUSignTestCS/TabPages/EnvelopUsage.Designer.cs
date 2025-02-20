@@ -20,523 +20,555 @@
 			base.Dispose(disposing);
 		}
 
-		#region Component Designer generated code
+        #region Component Designer generated code
 
-		/// <summary> 
-		/// Required method for Designer support - do not modify 
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
-			this.panelParams = new System.Windows.Forms.Panel();
-			this.checkBoxRecipientsCertsFromFile = new System.Windows.Forms.CheckBox();
-			this.checkBoxAppendCertToSign = new System.Windows.Forms.CheckBox();
-			this.checkBoxUseDynamicKeys = new System.Windows.Forms.CheckBox();
-			this.checkBoxMultipleEncryption = new System.Windows.Forms.CheckBox();
-			this.checkBoxAddSignature = new System.Windows.Forms.CheckBox();
-			this.labelParams = new System.Windows.Forms.Label();
-			this.pictureBoxSplitParams = new System.Windows.Forms.PictureBox();
-			this.panelEncryptData = new System.Windows.Forms.Panel();
-			this.buttonDataSenderCert = new System.Windows.Forms.Button();
-			this.textBoxDevelopedData = new System.Windows.Forms.TextBox();
-			this.labelDecryptedData = new System.Windows.Forms.Label();
-			this.richTextBoxEnvelopedData = new System.Windows.Forms.RichTextBox();
-			this.labelEncryptedData = new System.Windows.Forms.Label();
-			this.buttonDevelopData = new System.Windows.Forms.Button();
-			this.textBoxDataToEnvelop = new System.Windows.Forms.TextBox();
-			this.labelEncryptData = new System.Windows.Forms.Label();
-			this.buttonEnvelopData = new System.Windows.Forms.Button();
-			this.labelEncryptDataTitle = new System.Windows.Forms.Label();
-			this.pictureBoxSplitEncryptData = new System.Windows.Forms.PictureBox();
-			this.panelEncryptFile = new System.Windows.Forms.Panel();
-			this.buttonFileSenderCert = new System.Windows.Forms.Button();
-			this.textBoxDevelopedFile = new System.Windows.Forms.TextBox();
-			this.labelDecryptedFile = new System.Windows.Forms.Label();
-			this.buttonChooseDevelopedFile = new System.Windows.Forms.Button();
-			this.buttonDevelopFile = new System.Windows.Forms.Button();
-			this.textBoxEnvelopedFile = new System.Windows.Forms.TextBox();
-			this.labelEncryptedFile = new System.Windows.Forms.Label();
-			this.buttonChooseEnvelopedFile = new System.Windows.Forms.Button();
-			this.buttonEnvelopFile = new System.Windows.Forms.Button();
-			this.textBoxFileToEnvelop = new System.Windows.Forms.TextBox();
-			this.labelEncryptFile = new System.Windows.Forms.Label();
-			this.buttonChooseFileToEnvelop = new System.Windows.Forms.Button();
-			this.labelEncryptFileTitle = new System.Windows.Forms.Label();
-			this.pictureBoxSplitEncryptFile = new System.Windows.Forms.PictureBox();
-			this.panelTest = new System.Windows.Forms.Panel();
-			this.buttonEnvelopAppendDataTest = new System.Windows.Forms.Button();
-			this.buttonEnvelopFileTest = new System.Windows.Forms.Button();
-			this.buttonEnvelopDataTest = new System.Windows.Forms.Button();
-			this.labelTestTitle = new System.Windows.Forms.Label();
-			this.pictureBoxSplitTest = new System.Windows.Forms.PictureBox();
-			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-			this.panelParams.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxSplitParams)).BeginInit();
-			this.panelEncryptData.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxSplitEncryptData)).BeginInit();
-			this.panelEncryptFile.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxSplitEncryptFile)).BeginInit();
-			this.panelTest.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxSplitTest)).BeginInit();
-			this.SuspendLayout();
-			// 
-			// panelParams
-			// 
-			this.panelParams.Controls.Add(this.checkBoxRecipientsCertsFromFile);
-			this.panelParams.Controls.Add(this.checkBoxAppendCertToSign);
-			this.panelParams.Controls.Add(this.checkBoxUseDynamicKeys);
-			this.panelParams.Controls.Add(this.checkBoxMultipleEncryption);
-			this.panelParams.Controls.Add(this.checkBoxAddSignature);
-			this.panelParams.Controls.Add(this.labelParams);
-			this.panelParams.Controls.Add(this.pictureBoxSplitParams);
-			this.panelParams.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panelParams.Location = new System.Drawing.Point(0, 0);
-			this.panelParams.Name = "panelParams";
-			this.panelParams.Size = new System.Drawing.Size(520, 99);
-			this.panelParams.TabIndex = 8;
-			// 
-			// checkBoxRecipientsCertsFromFile
-			// 
-			this.checkBoxRecipientsCertsFromFile.AutoSize = true;
-			this.checkBoxRecipientsCertsFromFile.Location = new System.Drawing.Point(253, 54);
-			this.checkBoxRecipientsCertsFromFile.Name = "checkBoxRecipientsCertsFromFile";
-			this.checkBoxRecipientsCertsFromFile.Size = new System.Drawing.Size(197, 17);
-			this.checkBoxRecipientsCertsFromFile.TabIndex = 10;
-			this.checkBoxRecipientsCertsFromFile.Text = "Сертифікати одержувачів з файлу";
-			this.checkBoxRecipientsCertsFromFile.UseVisualStyleBackColor = true;
-			// 
-			// checkBoxAppendCertToSign
-			// 
-			this.checkBoxAppendCertToSign.AutoSize = true;
-			this.checkBoxAppendCertToSign.Location = new System.Drawing.Point(253, 31);
-			this.checkBoxAppendCertToSign.Name = "checkBoxAppendCertToSign";
-			this.checkBoxAppendCertToSign.Size = new System.Drawing.Size(190, 17);
-			this.checkBoxAppendCertToSign.TabIndex = 9;
-			this.checkBoxAppendCertToSign.Text = "Додавати сертифікат до підпису";
-			this.checkBoxAppendCertToSign.UseVisualStyleBackColor = true;
-			// 
-			// checkBoxUseDynamicKeys
-			// 
-			this.checkBoxUseDynamicKeys.AutoSize = true;
-			this.checkBoxUseDynamicKeys.Location = new System.Drawing.Point(25, 77);
-			this.checkBoxUseDynamicKeys.Name = "checkBoxUseDynamicKeys";
-			this.checkBoxUseDynamicKeys.Size = new System.Drawing.Size(194, 17);
-			this.checkBoxUseDynamicKeys.TabIndex = 8;
-			this.checkBoxUseDynamicKeys.Text = "Використовувати динамічні ключі";
-			this.checkBoxUseDynamicKeys.UseVisualStyleBackColor = true;
-			this.checkBoxUseDynamicKeys.CheckedChanged += new System.EventHandler(this.UseDynamicKeysCheckBoxClick);
-			// 
-			// checkBoxMultipleEncryption
-			// 
-			this.checkBoxMultipleEncryption.AutoSize = true;
-			this.checkBoxMultipleEncryption.Location = new System.Drawing.Point(25, 54);
-			this.checkBoxMultipleEncryption.Name = "checkBoxMultipleEncryption";
-			this.checkBoxMultipleEncryption.Size = new System.Drawing.Size(214, 17);
-			this.checkBoxMultipleEncryption.TabIndex = 7;
-			this.checkBoxMultipleEncryption.Text = "Шифрувати на декількох отримувачів";
-			this.checkBoxMultipleEncryption.UseVisualStyleBackColor = true;
-			// 
-			// checkBoxAddSignature
-			// 
-			this.checkBoxAddSignature.AutoSize = true;
-			this.checkBoxAddSignature.Location = new System.Drawing.Point(25, 31);
-			this.checkBoxAddSignature.Name = "checkBoxAddSignature";
-			this.checkBoxAddSignature.Size = new System.Drawing.Size(111, 17);
-			this.checkBoxAddSignature.TabIndex = 6;
-			this.checkBoxAddSignature.Text = "Додавати підпис";
-			this.checkBoxAddSignature.UseVisualStyleBackColor = true;
-			this.checkBoxAddSignature.CheckedChanged += new System.EventHandler(this.AddSignCheckBoxClick);
-			// 
-			// labelParams
-			// 
-			this.labelParams.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.labelParams.Location = new System.Drawing.Point(16, 6);
-			this.labelParams.Name = "labelParams";
-			this.labelParams.Size = new System.Drawing.Size(484, 13);
-			this.labelParams.TabIndex = 5;
-			this.labelParams.Text = "Параметри";
-			// 
-			// pictureBoxSplitParams
-			// 
-			this.pictureBoxSplitParams.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.pictureBoxSplitParams.Image = global::EUSignTestCS.Properties.Resources.RPK_SplitImage;
-			this.pictureBoxSplitParams.Location = new System.Drawing.Point(0, 98);
-			this.pictureBoxSplitParams.Name = "pictureBoxSplitParams";
-			this.pictureBoxSplitParams.Size = new System.Drawing.Size(520, 1);
-			this.pictureBoxSplitParams.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBoxSplitParams.TabIndex = 4;
-			this.pictureBoxSplitParams.TabStop = false;
-			// 
-			// panelEncryptData
-			// 
-			this.panelEncryptData.Controls.Add(this.buttonDataSenderCert);
-			this.panelEncryptData.Controls.Add(this.textBoxDevelopedData);
-			this.panelEncryptData.Controls.Add(this.labelDecryptedData);
-			this.panelEncryptData.Controls.Add(this.richTextBoxEnvelopedData);
-			this.panelEncryptData.Controls.Add(this.labelEncryptedData);
-			this.panelEncryptData.Controls.Add(this.buttonDevelopData);
-			this.panelEncryptData.Controls.Add(this.textBoxDataToEnvelop);
-			this.panelEncryptData.Controls.Add(this.labelEncryptData);
-			this.panelEncryptData.Controls.Add(this.buttonEnvelopData);
-			this.panelEncryptData.Controls.Add(this.labelEncryptDataTitle);
-			this.panelEncryptData.Controls.Add(this.pictureBoxSplitEncryptData);
-			this.panelEncryptData.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panelEncryptData.Location = new System.Drawing.Point(0, 99);
-			this.panelEncryptData.Name = "panelEncryptData";
-			this.panelEncryptData.Size = new System.Drawing.Size(520, 226);
-			this.panelEncryptData.TabIndex = 10;
-			// 
-			// buttonDataSenderCert
-			// 
-			this.buttonDataSenderCert.Location = new System.Drawing.Point(357, 158);
-			this.buttonDataSenderCert.Name = "buttonDataSenderCert";
-			this.buttonDataSenderCert.Size = new System.Drawing.Size(150, 22);
-			this.buttonDataSenderCert.TabIndex = 15;
-			this.buttonDataSenderCert.Text = "Сертифікат відправника...";
-			this.buttonDataSenderCert.UseVisualStyleBackColor = true;
-			this.buttonDataSenderCert.Click += new System.EventHandler(this.ShowDataSenderCertificate);
-			// 
-			// textBoxDevelopedData
-			// 
-			this.textBoxDevelopedData.Location = new System.Drawing.Point(32, 199);
-			this.textBoxDevelopedData.Name = "textBoxDevelopedData";
-			this.textBoxDevelopedData.Size = new System.Drawing.Size(475, 20);
-			this.textBoxDevelopedData.TabIndex = 16;
-			// 
-			// labelDecryptedData
-			// 
-			this.labelDecryptedData.Location = new System.Drawing.Point(32, 183);
-			this.labelDecryptedData.Margin = new System.Windows.Forms.Padding(0);
-			this.labelDecryptedData.Name = "labelDecryptedData";
-			this.labelDecryptedData.Size = new System.Drawing.Size(160, 13);
-			this.labelDecryptedData.TabIndex = 22;
-			this.labelDecryptedData.Text = "Розшифровані дані:";
-			// 
-			// richTextBoxEnvelopedData
-			// 
-			this.richTextBoxEnvelopedData.Location = new System.Drawing.Point(32, 112);
-			this.richTextBoxEnvelopedData.Name = "richTextBoxEnvelopedData";
-			this.richTextBoxEnvelopedData.Size = new System.Drawing.Size(475, 40);
-			this.richTextBoxEnvelopedData.TabIndex = 13;
-			this.richTextBoxEnvelopedData.Text = "";
-			// 
-			// labelEncryptedData
-			// 
-			this.labelEncryptedData.Location = new System.Drawing.Point(32, 95);
-			this.labelEncryptedData.Margin = new System.Windows.Forms.Padding(0);
-			this.labelEncryptedData.Name = "labelEncryptedData";
-			this.labelEncryptedData.Size = new System.Drawing.Size(145, 14);
-			this.labelEncryptedData.TabIndex = 18;
-			this.labelEncryptedData.Text = "Зашифровані дані:";
-			// 
-			// buttonDevelopData
-			// 
-			this.buttonDevelopData.Location = new System.Drawing.Point(201, 158);
-			this.buttonDevelopData.Name = "buttonDevelopData";
-			this.buttonDevelopData.Size = new System.Drawing.Size(150, 22);
-			this.buttonDevelopData.TabIndex = 14;
-			this.buttonDevelopData.Text = "Розшифрувати...";
-			this.buttonDevelopData.UseVisualStyleBackColor = true;
-			this.buttonDevelopData.Click += new System.EventHandler(this.DevelopData);
-			// 
-			// textBoxDataToEnvelop
-			// 
-			this.textBoxDataToEnvelop.Location = new System.Drawing.Point(32, 43);
-			this.textBoxDataToEnvelop.Name = "textBoxDataToEnvelop";
-			this.textBoxDataToEnvelop.Size = new System.Drawing.Size(475, 20);
-			this.textBoxDataToEnvelop.TabIndex = 11;
-			// 
-			// labelEncryptData
-			// 
-			this.labelEncryptData.Location = new System.Drawing.Point(32, 26);
-			this.labelEncryptData.Margin = new System.Windows.Forms.Padding(0);
-			this.labelEncryptData.Name = "labelEncryptData";
-			this.labelEncryptData.Size = new System.Drawing.Size(160, 13);
-			this.labelEncryptData.TabIndex = 11;
-			this.labelEncryptData.Text = "Дані для шифрування:";
-			// 
-			// buttonEnvelopData
-			// 
-			this.buttonEnvelopData.Location = new System.Drawing.Point(357, 70);
-			this.buttonEnvelopData.Name = "buttonEnvelopData";
-			this.buttonEnvelopData.Size = new System.Drawing.Size(150, 22);
-			this.buttonEnvelopData.TabIndex = 12;
-			this.buttonEnvelopData.Text = "Зашифрувати...";
-			this.buttonEnvelopData.UseVisualStyleBackColor = true;
-			this.buttonEnvelopData.Click += new System.EventHandler(this.EnvelopData);
-			// 
-			// labelEncryptDataTitle
-			// 
-			this.labelEncryptDataTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.labelEncryptDataTitle.Location = new System.Drawing.Point(16, 6);
-			this.labelEncryptDataTitle.Name = "labelEncryptDataTitle";
-			this.labelEncryptDataTitle.Size = new System.Drawing.Size(484, 13);
-			this.labelEncryptDataTitle.TabIndex = 8;
-			this.labelEncryptDataTitle.Text = "Шифрування даних";
-			// 
-			// pictureBoxSplitEncryptData
-			// 
-			this.pictureBoxSplitEncryptData.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.pictureBoxSplitEncryptData.Image = global::EUSignTestCS.Properties.Resources.RPK_SplitImage;
-			this.pictureBoxSplitEncryptData.Location = new System.Drawing.Point(0, 225);
-			this.pictureBoxSplitEncryptData.Name = "pictureBoxSplitEncryptData";
-			this.pictureBoxSplitEncryptData.Size = new System.Drawing.Size(520, 1);
-			this.pictureBoxSplitEncryptData.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBoxSplitEncryptData.TabIndex = 4;
-			this.pictureBoxSplitEncryptData.TabStop = false;
-			// 
-			// panelEncryptFile
-			// 
-			this.panelEncryptFile.Controls.Add(this.buttonFileSenderCert);
-			this.panelEncryptFile.Controls.Add(this.textBoxDevelopedFile);
-			this.panelEncryptFile.Controls.Add(this.labelDecryptedFile);
-			this.panelEncryptFile.Controls.Add(this.buttonChooseDevelopedFile);
-			this.panelEncryptFile.Controls.Add(this.buttonDevelopFile);
-			this.panelEncryptFile.Controls.Add(this.textBoxEnvelopedFile);
-			this.panelEncryptFile.Controls.Add(this.labelEncryptedFile);
-			this.panelEncryptFile.Controls.Add(this.buttonChooseEnvelopedFile);
-			this.panelEncryptFile.Controls.Add(this.buttonEnvelopFile);
-			this.panelEncryptFile.Controls.Add(this.textBoxFileToEnvelop);
-			this.panelEncryptFile.Controls.Add(this.labelEncryptFile);
-			this.panelEncryptFile.Controls.Add(this.buttonChooseFileToEnvelop);
-			this.panelEncryptFile.Controls.Add(this.labelEncryptFileTitle);
-			this.panelEncryptFile.Controls.Add(this.pictureBoxSplitEncryptFile);
-			this.panelEncryptFile.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panelEncryptFile.Location = new System.Drawing.Point(0, 325);
-			this.panelEncryptFile.Name = "panelEncryptFile";
-			this.panelEncryptFile.Size = new System.Drawing.Size(520, 208);
-			this.panelEncryptFile.TabIndex = 12;
-			// 
-			// buttonFileSenderCert
-			// 
-			this.buttonFileSenderCert.Location = new System.Drawing.Point(357, 137);
-			this.buttonFileSenderCert.Name = "buttonFileSenderCert";
-			this.buttonFileSenderCert.Size = new System.Drawing.Size(150, 22);
-			this.buttonFileSenderCert.TabIndex = 24;
-			this.buttonFileSenderCert.Text = "Сертифікат відправника...";
-			this.buttonFileSenderCert.UseVisualStyleBackColor = true;
-			this.buttonFileSenderCert.Click += new System.EventHandler(this.ShowFileSenderCertificate);
-			// 
-			// textBoxDevelopedFile
-			// 
-			this.textBoxDevelopedFile.Location = new System.Drawing.Point(32, 179);
-			this.textBoxDevelopedFile.Name = "textBoxDevelopedFile";
-			this.textBoxDevelopedFile.Size = new System.Drawing.Size(376, 20);
-			this.textBoxDevelopedFile.TabIndex = 25;
-			// 
-			// labelDecryptedFile
-			// 
-			this.labelDecryptedFile.Location = new System.Drawing.Point(32, 162);
-			this.labelDecryptedFile.Margin = new System.Windows.Forms.Padding(0);
-			this.labelDecryptedFile.Name = "labelDecryptedFile";
-			this.labelDecryptedFile.Size = new System.Drawing.Size(414, 13);
-			this.labelDecryptedFile.TabIndex = 30;
-			this.labelDecryptedFile.Text = "Розшифрований файл:";
-			// 
-			// buttonChooseDevelopedFile
-			// 
-			this.buttonChooseDevelopedFile.Location = new System.Drawing.Point(414, 179);
-			this.buttonChooseDevelopedFile.Name = "buttonChooseDevelopedFile";
-			this.buttonChooseDevelopedFile.Size = new System.Drawing.Size(93, 22);
-			this.buttonChooseDevelopedFile.TabIndex = 26;
-			this.buttonChooseDevelopedFile.Text = "Обрати...";
-			this.buttonChooseDevelopedFile.UseVisualStyleBackColor = true;
-			this.buttonChooseDevelopedFile.Click += new System.EventHandler(this.ChooseDevelopedFile);
-			// 
-			// buttonDevelopFile
-			// 
-			this.buttonDevelopFile.Location = new System.Drawing.Point(201, 137);
-			this.buttonDevelopFile.Name = "buttonDevelopFile";
-			this.buttonDevelopFile.Size = new System.Drawing.Size(150, 22);
-			this.buttonDevelopFile.TabIndex = 23;
-			this.buttonDevelopFile.Text = "Розшифрувати...";
-			this.buttonDevelopFile.UseVisualStyleBackColor = true;
-			this.buttonDevelopFile.Click += new System.EventHandler(this.DevelopFile);
-			// 
-			// textBoxEnvelopedFile
-			// 
-			this.textBoxEnvelopedFile.Location = new System.Drawing.Point(32, 111);
-			this.textBoxEnvelopedFile.Name = "textBoxEnvelopedFile";
-			this.textBoxEnvelopedFile.Size = new System.Drawing.Size(376, 20);
-			this.textBoxEnvelopedFile.TabIndex = 21;
-			// 
-			// labelEncryptedFile
-			// 
-			this.labelEncryptedFile.Location = new System.Drawing.Point(32, 95);
-			this.labelEncryptedFile.Margin = new System.Windows.Forms.Padding(0);
-			this.labelEncryptedFile.Name = "labelEncryptedFile";
-			this.labelEncryptedFile.Size = new System.Drawing.Size(414, 13);
-			this.labelEncryptedFile.TabIndex = 26;
-			this.labelEncryptedFile.Text = "Зашифрований файл:";
-			// 
-			// buttonChooseEnvelopedFile
-			// 
-			this.buttonChooseEnvelopedFile.Location = new System.Drawing.Point(414, 111);
-			this.buttonChooseEnvelopedFile.Name = "buttonChooseEnvelopedFile";
-			this.buttonChooseEnvelopedFile.Size = new System.Drawing.Size(93, 22);
-			this.buttonChooseEnvelopedFile.TabIndex = 22;
-			this.buttonChooseEnvelopedFile.Text = "Обрати...";
-			this.buttonChooseEnvelopedFile.UseVisualStyleBackColor = true;
-			this.buttonChooseEnvelopedFile.Click += new System.EventHandler(this.ChooseEnvelopedFile);
-			// 
-			// buttonEnvelopFile
-			// 
-			this.buttonEnvelopFile.Location = new System.Drawing.Point(357, 69);
-			this.buttonEnvelopFile.Name = "buttonEnvelopFile";
-			this.buttonEnvelopFile.Size = new System.Drawing.Size(150, 22);
-			this.buttonEnvelopFile.TabIndex = 19;
-			this.buttonEnvelopFile.Text = "Зашифрувати...";
-			this.buttonEnvelopFile.UseVisualStyleBackColor = true;
-			this.buttonEnvelopFile.Click += new System.EventHandler(this.EnvelopFile);
-			// 
-			// textBoxFileToEnvelop
-			// 
-			this.textBoxFileToEnvelop.Location = new System.Drawing.Point(32, 43);
-			this.textBoxFileToEnvelop.Name = "textBoxFileToEnvelop";
-			this.textBoxFileToEnvelop.Size = new System.Drawing.Size(376, 20);
-			this.textBoxFileToEnvelop.TabIndex = 17;
-			// 
-			// labelEncryptFile
-			// 
-			this.labelEncryptFile.Location = new System.Drawing.Point(32, 26);
-			this.labelEncryptFile.Margin = new System.Windows.Forms.Padding(0);
-			this.labelEncryptFile.Name = "labelEncryptFile";
-			this.labelEncryptFile.Size = new System.Drawing.Size(168, 13);
-			this.labelEncryptFile.TabIndex = 11;
-			this.labelEncryptFile.Text = "Файл для зашифрування:";
-			// 
-			// buttonChooseFileToEnvelop
-			// 
-			this.buttonChooseFileToEnvelop.Location = new System.Drawing.Point(414, 43);
-			this.buttonChooseFileToEnvelop.Name = "buttonChooseFileToEnvelop";
-			this.buttonChooseFileToEnvelop.Size = new System.Drawing.Size(93, 22);
-			this.buttonChooseFileToEnvelop.TabIndex = 18;
-			this.buttonChooseFileToEnvelop.Text = "Обрати...";
-			this.buttonChooseFileToEnvelop.UseVisualStyleBackColor = true;
-			this.buttonChooseFileToEnvelop.Click += new System.EventHandler(this.ChooseFileToEnvelop);
-			// 
-			// labelEncryptFileTitle
-			// 
-			this.labelEncryptFileTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.labelEncryptFileTitle.Location = new System.Drawing.Point(16, 6);
-			this.labelEncryptFileTitle.Name = "labelEncryptFileTitle";
-			this.labelEncryptFileTitle.Size = new System.Drawing.Size(484, 13);
-			this.labelEncryptFileTitle.TabIndex = 8;
-			this.labelEncryptFileTitle.Text = "Шифрування файлів";
-			// 
-			// pictureBoxSplitEncryptFile
-			// 
-			this.pictureBoxSplitEncryptFile.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.pictureBoxSplitEncryptFile.Image = global::EUSignTestCS.Properties.Resources.RPK_SplitImage;
-			this.pictureBoxSplitEncryptFile.Location = new System.Drawing.Point(0, 207);
-			this.pictureBoxSplitEncryptFile.Name = "pictureBoxSplitEncryptFile";
-			this.pictureBoxSplitEncryptFile.Size = new System.Drawing.Size(520, 1);
-			this.pictureBoxSplitEncryptFile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBoxSplitEncryptFile.TabIndex = 4;
-			this.pictureBoxSplitEncryptFile.TabStop = false;
-			// 
-			// panelTest
-			// 
-			this.panelTest.Controls.Add(this.buttonEnvelopAppendDataTest);
-			this.panelTest.Controls.Add(this.buttonEnvelopFileTest);
-			this.panelTest.Controls.Add(this.buttonEnvelopDataTest);
-			this.panelTest.Controls.Add(this.labelTestTitle);
-			this.panelTest.Controls.Add(this.pictureBoxSplitTest);
-			this.panelTest.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panelTest.Location = new System.Drawing.Point(0, 533);
-			this.panelTest.Name = "panelTest";
-			this.panelTest.Size = new System.Drawing.Size(520, 60);
-			this.panelTest.TabIndex = 14;
-			// 
-			// buttonEnvelopAppendDataTest
-			// 
-			this.buttonEnvelopAppendDataTest.Location = new System.Drawing.Point(344, 31);
-			this.buttonEnvelopAppendDataTest.Name = "buttonEnvelopAppendDataTest";
-			this.buttonEnvelopAppendDataTest.Size = new System.Drawing.Size(163, 22);
-			this.buttonEnvelopAppendDataTest.TabIndex = 29;
-			this.buttonEnvelopAppendDataTest.Text = "Шифр. (декілька ключів)...";
-			this.buttonEnvelopAppendDataTest.UseVisualStyleBackColor = true;
-			this.buttonEnvelopAppendDataTest.Click += new System.EventHandler(this.RunCtxEnvelopTest);
-			// 
-			// buttonEnvelopFileTest
-			// 
-			this.buttonEnvelopFileTest.Location = new System.Drawing.Point(188, 31);
-			this.buttonEnvelopFileTest.Name = "buttonEnvelopFileTest";
-			this.buttonEnvelopFileTest.Size = new System.Drawing.Size(150, 22);
-			this.buttonEnvelopFileTest.TabIndex = 28;
-			this.buttonEnvelopFileTest.Text = "Шифрування файлів...";
-			this.buttonEnvelopFileTest.UseVisualStyleBackColor = true;
-			this.buttonEnvelopFileTest.Click += new System.EventHandler(this.RunEnvelopFileTest);
-			// 
-			// buttonEnvelopDataTest
-			// 
-			this.buttonEnvelopDataTest.Location = new System.Drawing.Point(32, 31);
-			this.buttonEnvelopDataTest.Name = "buttonEnvelopDataTest";
-			this.buttonEnvelopDataTest.Size = new System.Drawing.Size(150, 22);
-			this.buttonEnvelopDataTest.TabIndex = 27;
-			this.buttonEnvelopDataTest.Text = "Шифрування даних...";
-			this.buttonEnvelopDataTest.UseVisualStyleBackColor = true;
-			this.buttonEnvelopDataTest.Click += new System.EventHandler(this.RunEnvelopDataTest);
-			// 
-			// labelTestTitle
-			// 
-			this.labelTestTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.labelTestTitle.Location = new System.Drawing.Point(16, 6);
-			this.labelTestTitle.Name = "labelTestTitle";
-			this.labelTestTitle.Size = new System.Drawing.Size(484, 13);
-			this.labelTestTitle.TabIndex = 5;
-			this.labelTestTitle.Text = "Тестування";
-			// 
-			// pictureBoxSplitTest
-			// 
-			this.pictureBoxSplitTest.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.pictureBoxSplitTest.Image = global::EUSignTestCS.Properties.Resources.RPK_SplitImage;
-			this.pictureBoxSplitTest.Location = new System.Drawing.Point(0, 59);
-			this.pictureBoxSplitTest.Name = "pictureBoxSplitTest";
-			this.pictureBoxSplitTest.Size = new System.Drawing.Size(520, 1);
-			this.pictureBoxSplitTest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBoxSplitTest.TabIndex = 4;
-			this.pictureBoxSplitTest.TabStop = false;
-			this.pictureBoxSplitTest.Visible = false;
-			// 
-			// saveFileDialog
-			// 
-			this.saveFileDialog.FileName = "certificate.cer";
-			this.saveFileDialog.Filter = "Сертифікат (*.cer)|*.cer";
-			// 
-			// EnvelopUsage
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.panelTest);
-			this.Controls.Add(this.panelEncryptFile);
-			this.Controls.Add(this.panelEncryptData);
-			this.Controls.Add(this.panelParams);
-			this.Name = "EnvelopUsage";
-			this.Size = new System.Drawing.Size(520, 660);
-			this.panelParams.ResumeLayout(false);
-			this.panelParams.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxSplitParams)).EndInit();
-			this.panelEncryptData.ResumeLayout(false);
-			this.panelEncryptData.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxSplitEncryptData)).EndInit();
-			this.panelEncryptFile.ResumeLayout(false);
-			this.panelEncryptFile.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxSplitEncryptFile)).EndInit();
-			this.panelTest.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxSplitTest)).EndInit();
-			this.ResumeLayout(false);
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            panelParams = new Panel();
+            checkBoxRecipientsCertsFromFile = new CheckBox();
+            checkBoxAppendCertToSign = new CheckBox();
+            checkBoxUseDynamicKeys = new CheckBox();
+            checkBoxMultipleEncryption = new CheckBox();
+            checkBoxAddSignature = new CheckBox();
+            labelParams = new Label();
+            pictureBoxSplitParams = new PictureBox();
+            panelEncryptData = new Panel();
+            buttonDataSenderCert = new Button();
+            textBoxDevelopedData = new TextBox();
+            labelDecryptedData = new Label();
+            richTextBoxEnvelopedData = new RichTextBox();
+            labelEncryptedData = new Label();
+            buttonDevelopData = new Button();
+            textBoxDataToEnvelop = new TextBox();
+            labelEncryptData = new Label();
+            buttonEnvelopData = new Button();
+            labelEncryptDataTitle = new Label();
+            pictureBoxSplitEncryptData = new PictureBox();
+            panelEncryptFile = new Panel();
+            buttonFileSenderCert = new Button();
+            textBoxDevelopedFile = new TextBox();
+            labelDecryptedFile = new Label();
+            buttonChooseDevelopedFile = new Button();
+            buttonDevelopFile = new Button();
+            textBoxEnvelopedFile = new TextBox();
+            labelEncryptedFile = new Label();
+            buttonChooseEnvelopedFile = new Button();
+            buttonEnvelopFile = new Button();
+            textBoxFileToEnvelop = new TextBox();
+            labelEncryptFile = new Label();
+            buttonChooseFileToEnvelop = new Button();
+            labelEncryptFileTitle = new Label();
+            pictureBoxSplitEncryptFile = new PictureBox();
+            panelTest = new Panel();
+            buttonEnvelopAppendDataTest = new Button();
+            buttonEnvelopFileTest = new Button();
+            buttonEnvelopDataTest = new Button();
+            labelTestTitle = new Label();
+            pictureBoxSplitTest = new PictureBox();
+            openFileDialog = new OpenFileDialog();
+            saveFileDialog = new SaveFileDialog();
+            panelParams.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSplitParams).BeginInit();
+            panelEncryptData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSplitEncryptData).BeginInit();
+            panelEncryptFile.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSplitEncryptFile).BeginInit();
+            panelTest.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSplitTest).BeginInit();
+            SuspendLayout();
+            // 
+            // panelParams
+            // 
+            panelParams.Controls.Add(checkBoxRecipientsCertsFromFile);
+            panelParams.Controls.Add(checkBoxAppendCertToSign);
+            panelParams.Controls.Add(checkBoxUseDynamicKeys);
+            panelParams.Controls.Add(checkBoxMultipleEncryption);
+            panelParams.Controls.Add(checkBoxAddSignature);
+            panelParams.Controls.Add(labelParams);
+            panelParams.Controls.Add(pictureBoxSplitParams);
+            panelParams.Dock = DockStyle.Top;
+            panelParams.Location = new Point(0, 0);
+            panelParams.Margin = new Padding(4, 3, 4, 3);
+            panelParams.Name = "panelParams";
+            panelParams.Size = new Size(607, 114);
+            panelParams.TabIndex = 8;
+            // 
+            // checkBoxRecipientsCertsFromFile
+            // 
+            checkBoxRecipientsCertsFromFile.AutoSize = true;
+            checkBoxRecipientsCertsFromFile.Location = new Point(295, 62);
+            checkBoxRecipientsCertsFromFile.Margin = new Padding(4, 3, 4, 3);
+            checkBoxRecipientsCertsFromFile.Name = "checkBoxRecipientsCertsFromFile";
+            checkBoxRecipientsCertsFromFile.Size = new Size(213, 19);
+            checkBoxRecipientsCertsFromFile.TabIndex = 10;
+            checkBoxRecipientsCertsFromFile.Text = "Сертифікати одержувачів з файлу";
+            checkBoxRecipientsCertsFromFile.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxAppendCertToSign
+            // 
+            checkBoxAppendCertToSign.AutoSize = true;
+            checkBoxAppendCertToSign.Location = new Point(295, 36);
+            checkBoxAppendCertToSign.Margin = new Padding(4, 3, 4, 3);
+            checkBoxAppendCertToSign.Name = "checkBoxAppendCertToSign";
+            checkBoxAppendCertToSign.Size = new Size(201, 19);
+            checkBoxAppendCertToSign.TabIndex = 9;
+            checkBoxAppendCertToSign.Text = "Додавати сертифікат до підпису";
+            checkBoxAppendCertToSign.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxUseDynamicKeys
+            // 
+            checkBoxUseDynamicKeys.AutoSize = true;
+            checkBoxUseDynamicKeys.Location = new Point(29, 89);
+            checkBoxUseDynamicKeys.Margin = new Padding(4, 3, 4, 3);
+            checkBoxUseDynamicKeys.Name = "checkBoxUseDynamicKeys";
+            checkBoxUseDynamicKeys.Size = new Size(215, 19);
+            checkBoxUseDynamicKeys.TabIndex = 8;
+            checkBoxUseDynamicKeys.Text = "Використовувати динамічні ключі";
+            checkBoxUseDynamicKeys.UseVisualStyleBackColor = true;
+            checkBoxUseDynamicKeys.CheckedChanged += UseDynamicKeysCheckBoxClick;
+            // 
+            // checkBoxMultipleEncryption
+            // 
+            checkBoxMultipleEncryption.AutoSize = true;
+            checkBoxMultipleEncryption.Location = new Point(29, 62);
+            checkBoxMultipleEncryption.Margin = new Padding(4, 3, 4, 3);
+            checkBoxMultipleEncryption.Name = "checkBoxMultipleEncryption";
+            checkBoxMultipleEncryption.Size = new Size(234, 19);
+            checkBoxMultipleEncryption.TabIndex = 7;
+            checkBoxMultipleEncryption.Text = "Шифрувати на декількох отримувачів";
+            checkBoxMultipleEncryption.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxAddSignature
+            // 
+            checkBoxAddSignature.AutoSize = true;
+            checkBoxAddSignature.Location = new Point(29, 36);
+            checkBoxAddSignature.Margin = new Padding(4, 3, 4, 3);
+            checkBoxAddSignature.Name = "checkBoxAddSignature";
+            checkBoxAddSignature.Size = new Size(116, 19);
+            checkBoxAddSignature.TabIndex = 6;
+            checkBoxAddSignature.Text = "Додавати підпис";
+            checkBoxAddSignature.UseVisualStyleBackColor = true;
+            checkBoxAddSignature.CheckedChanged += AddSignCheckBoxClick;
+            // 
+            // labelParams
+            // 
+            labelParams.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            labelParams.Location = new Point(19, 7);
+            labelParams.Margin = new Padding(4, 0, 4, 0);
+            labelParams.Name = "labelParams";
+            labelParams.Size = new Size(565, 15);
+            labelParams.TabIndex = 5;
+            labelParams.Text = "Параметри";
+            // 
+            // pictureBoxSplitParams
+            // 
+            pictureBoxSplitParams.Dock = DockStyle.Bottom;
+            pictureBoxSplitParams.Image = Properties.Resources.RPK_SplitImage;
+            pictureBoxSplitParams.Location = new Point(0, 113);
+            pictureBoxSplitParams.Margin = new Padding(4, 3, 4, 3);
+            pictureBoxSplitParams.Name = "pictureBoxSplitParams";
+            pictureBoxSplitParams.Size = new Size(607, 1);
+            pictureBoxSplitParams.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxSplitParams.TabIndex = 4;
+            pictureBoxSplitParams.TabStop = false;
+            // 
+            // panelEncryptData
+            // 
+            panelEncryptData.Controls.Add(buttonDataSenderCert);
+            panelEncryptData.Controls.Add(textBoxDevelopedData);
+            panelEncryptData.Controls.Add(labelDecryptedData);
+            panelEncryptData.Controls.Add(richTextBoxEnvelopedData);
+            panelEncryptData.Controls.Add(labelEncryptedData);
+            panelEncryptData.Controls.Add(buttonDevelopData);
+            panelEncryptData.Controls.Add(textBoxDataToEnvelop);
+            panelEncryptData.Controls.Add(labelEncryptData);
+            panelEncryptData.Controls.Add(buttonEnvelopData);
+            panelEncryptData.Controls.Add(labelEncryptDataTitle);
+            panelEncryptData.Controls.Add(pictureBoxSplitEncryptData);
+            panelEncryptData.Dock = DockStyle.Top;
+            panelEncryptData.Location = new Point(0, 114);
+            panelEncryptData.Margin = new Padding(4, 3, 4, 3);
+            panelEncryptData.Name = "panelEncryptData";
+            panelEncryptData.Size = new Size(607, 261);
+            panelEncryptData.TabIndex = 10;
+            // 
+            // buttonDataSenderCert
+            // 
+            buttonDataSenderCert.Location = new Point(416, 182);
+            buttonDataSenderCert.Margin = new Padding(4, 3, 4, 3);
+            buttonDataSenderCert.Name = "buttonDataSenderCert";
+            buttonDataSenderCert.Size = new Size(175, 25);
+            buttonDataSenderCert.TabIndex = 15;
+            buttonDataSenderCert.Text = "Сертифікат відправника...";
+            buttonDataSenderCert.UseVisualStyleBackColor = true;
+            buttonDataSenderCert.Click += ShowDataSenderCertificate;
+            // 
+            // textBoxDevelopedData
+            // 
+            textBoxDevelopedData.Location = new Point(37, 230);
+            textBoxDevelopedData.Margin = new Padding(4, 3, 4, 3);
+            textBoxDevelopedData.Name = "textBoxDevelopedData";
+            textBoxDevelopedData.Size = new Size(554, 23);
+            textBoxDevelopedData.TabIndex = 16;
+            // 
+            // labelDecryptedData
+            // 
+            labelDecryptedData.Location = new Point(37, 211);
+            labelDecryptedData.Margin = new Padding(0);
+            labelDecryptedData.Name = "labelDecryptedData";
+            labelDecryptedData.Size = new Size(187, 15);
+            labelDecryptedData.TabIndex = 22;
+            labelDecryptedData.Text = "Розшифровані дані:";
+            // 
+            // richTextBoxEnvelopedData
+            // 
+            richTextBoxEnvelopedData.Location = new Point(37, 129);
+            richTextBoxEnvelopedData.Margin = new Padding(4, 3, 4, 3);
+            richTextBoxEnvelopedData.Name = "richTextBoxEnvelopedData";
+            richTextBoxEnvelopedData.Size = new Size(554, 46);
+            richTextBoxEnvelopedData.TabIndex = 13;
+            richTextBoxEnvelopedData.Text = "";
+            // 
+            // labelEncryptedData
+            // 
+            labelEncryptedData.Location = new Point(37, 110);
+            labelEncryptedData.Margin = new Padding(0);
+            labelEncryptedData.Name = "labelEncryptedData";
+            labelEncryptedData.Size = new Size(169, 16);
+            labelEncryptedData.TabIndex = 18;
+            labelEncryptedData.Text = "Зашифровані дані:";
+            // 
+            // buttonDevelopData
+            // 
+            buttonDevelopData.Location = new Point(234, 182);
+            buttonDevelopData.Margin = new Padding(4, 3, 4, 3);
+            buttonDevelopData.Name = "buttonDevelopData";
+            buttonDevelopData.Size = new Size(175, 25);
+            buttonDevelopData.TabIndex = 14;
+            buttonDevelopData.Text = "Розшифрувати...";
+            buttonDevelopData.UseVisualStyleBackColor = true;
+            buttonDevelopData.Click += DevelopData;
+            // 
+            // textBoxDataToEnvelop
+            // 
+            textBoxDataToEnvelop.Location = new Point(37, 50);
+            textBoxDataToEnvelop.Margin = new Padding(4, 3, 4, 3);
+            textBoxDataToEnvelop.Name = "textBoxDataToEnvelop";
+            textBoxDataToEnvelop.Size = new Size(554, 23);
+            textBoxDataToEnvelop.TabIndex = 11;
+            // 
+            // labelEncryptData
+            // 
+            labelEncryptData.Location = new Point(37, 30);
+            labelEncryptData.Margin = new Padding(0);
+            labelEncryptData.Name = "labelEncryptData";
+            labelEncryptData.Size = new Size(187, 15);
+            labelEncryptData.TabIndex = 11;
+            labelEncryptData.Text = "Дані для шифрування:";
+            // 
+            // buttonEnvelopData
+            // 
+            buttonEnvelopData.Location = new Point(416, 81);
+            buttonEnvelopData.Margin = new Padding(4, 3, 4, 3);
+            buttonEnvelopData.Name = "buttonEnvelopData";
+            buttonEnvelopData.Size = new Size(175, 25);
+            buttonEnvelopData.TabIndex = 12;
+            buttonEnvelopData.Text = "Зашифрувати...";
+            buttonEnvelopData.UseVisualStyleBackColor = true;
+            buttonEnvelopData.Click += EnvelopData;
+            // 
+            // labelEncryptDataTitle
+            // 
+            labelEncryptDataTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            labelEncryptDataTitle.Location = new Point(19, 7);
+            labelEncryptDataTitle.Margin = new Padding(4, 0, 4, 0);
+            labelEncryptDataTitle.Name = "labelEncryptDataTitle";
+            labelEncryptDataTitle.Size = new Size(565, 15);
+            labelEncryptDataTitle.TabIndex = 8;
+            labelEncryptDataTitle.Text = "Шифрування даних";
+            // 
+            // pictureBoxSplitEncryptData
+            // 
+            pictureBoxSplitEncryptData.Dock = DockStyle.Bottom;
+            pictureBoxSplitEncryptData.Image = Properties.Resources.RPK_SplitImage;
+            pictureBoxSplitEncryptData.Location = new Point(0, 260);
+            pictureBoxSplitEncryptData.Margin = new Padding(4, 3, 4, 3);
+            pictureBoxSplitEncryptData.Name = "pictureBoxSplitEncryptData";
+            pictureBoxSplitEncryptData.Size = new Size(607, 1);
+            pictureBoxSplitEncryptData.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxSplitEncryptData.TabIndex = 4;
+            pictureBoxSplitEncryptData.TabStop = false;
+            // 
+            // panelEncryptFile
+            // 
+            panelEncryptFile.Controls.Add(buttonFileSenderCert);
+            panelEncryptFile.Controls.Add(textBoxDevelopedFile);
+            panelEncryptFile.Controls.Add(labelDecryptedFile);
+            panelEncryptFile.Controls.Add(buttonChooseDevelopedFile);
+            panelEncryptFile.Controls.Add(buttonDevelopFile);
+            panelEncryptFile.Controls.Add(textBoxEnvelopedFile);
+            panelEncryptFile.Controls.Add(labelEncryptedFile);
+            panelEncryptFile.Controls.Add(buttonChooseEnvelopedFile);
+            panelEncryptFile.Controls.Add(buttonEnvelopFile);
+            panelEncryptFile.Controls.Add(textBoxFileToEnvelop);
+            panelEncryptFile.Controls.Add(labelEncryptFile);
+            panelEncryptFile.Controls.Add(buttonChooseFileToEnvelop);
+            panelEncryptFile.Controls.Add(labelEncryptFileTitle);
+            panelEncryptFile.Controls.Add(pictureBoxSplitEncryptFile);
+            panelEncryptFile.Dock = DockStyle.Top;
+            panelEncryptFile.Location = new Point(0, 375);
+            panelEncryptFile.Margin = new Padding(4, 3, 4, 3);
+            panelEncryptFile.Name = "panelEncryptFile";
+            panelEncryptFile.Size = new Size(607, 240);
+            panelEncryptFile.TabIndex = 12;
+            // 
+            // buttonFileSenderCert
+            // 
+            buttonFileSenderCert.Location = new Point(416, 158);
+            buttonFileSenderCert.Margin = new Padding(4, 3, 4, 3);
+            buttonFileSenderCert.Name = "buttonFileSenderCert";
+            buttonFileSenderCert.Size = new Size(175, 25);
+            buttonFileSenderCert.TabIndex = 24;
+            buttonFileSenderCert.Text = "Сертифікат відправника...";
+            buttonFileSenderCert.UseVisualStyleBackColor = true;
+            buttonFileSenderCert.Click += ShowFileSenderCertificate;
+            // 
+            // textBoxDevelopedFile
+            // 
+            textBoxDevelopedFile.Location = new Point(37, 207);
+            textBoxDevelopedFile.Margin = new Padding(4, 3, 4, 3);
+            textBoxDevelopedFile.Name = "textBoxDevelopedFile";
+            textBoxDevelopedFile.Size = new Size(438, 23);
+            textBoxDevelopedFile.TabIndex = 25;
+            // 
+            // labelDecryptedFile
+            // 
+            labelDecryptedFile.Location = new Point(37, 187);
+            labelDecryptedFile.Margin = new Padding(0);
+            labelDecryptedFile.Name = "labelDecryptedFile";
+            labelDecryptedFile.Size = new Size(483, 15);
+            labelDecryptedFile.TabIndex = 30;
+            labelDecryptedFile.Text = "Розшифрований файл:";
+            // 
+            // buttonChooseDevelopedFile
+            // 
+            buttonChooseDevelopedFile.Location = new Point(483, 207);
+            buttonChooseDevelopedFile.Margin = new Padding(4, 3, 4, 3);
+            buttonChooseDevelopedFile.Name = "buttonChooseDevelopedFile";
+            buttonChooseDevelopedFile.Size = new Size(108, 25);
+            buttonChooseDevelopedFile.TabIndex = 26;
+            buttonChooseDevelopedFile.Text = "Обрати...";
+            buttonChooseDevelopedFile.UseVisualStyleBackColor = true;
+            buttonChooseDevelopedFile.Click += ChooseDevelopedFile;
+            // 
+            // buttonDevelopFile
+            // 
+            buttonDevelopFile.Location = new Point(234, 158);
+            buttonDevelopFile.Margin = new Padding(4, 3, 4, 3);
+            buttonDevelopFile.Name = "buttonDevelopFile";
+            buttonDevelopFile.Size = new Size(175, 25);
+            buttonDevelopFile.TabIndex = 23;
+            buttonDevelopFile.Text = "Розшифрувати...";
+            buttonDevelopFile.UseVisualStyleBackColor = true;
+            buttonDevelopFile.Click += DevelopFile;
+            // 
+            // textBoxEnvelopedFile
+            // 
+            textBoxEnvelopedFile.Location = new Point(37, 128);
+            textBoxEnvelopedFile.Margin = new Padding(4, 3, 4, 3);
+            textBoxEnvelopedFile.Name = "textBoxEnvelopedFile";
+            textBoxEnvelopedFile.Size = new Size(438, 23);
+            textBoxEnvelopedFile.TabIndex = 21;
+            // 
+            // labelEncryptedFile
+            // 
+            labelEncryptedFile.Location = new Point(37, 110);
+            labelEncryptedFile.Margin = new Padding(0);
+            labelEncryptedFile.Name = "labelEncryptedFile";
+            labelEncryptedFile.Size = new Size(483, 15);
+            labelEncryptedFile.TabIndex = 26;
+            labelEncryptedFile.Text = "Зашифрований файл:";
+            // 
+            // buttonChooseEnvelopedFile
+            // 
+            buttonChooseEnvelopedFile.Location = new Point(483, 128);
+            buttonChooseEnvelopedFile.Margin = new Padding(4, 3, 4, 3);
+            buttonChooseEnvelopedFile.Name = "buttonChooseEnvelopedFile";
+            buttonChooseEnvelopedFile.Size = new Size(108, 25);
+            buttonChooseEnvelopedFile.TabIndex = 22;
+            buttonChooseEnvelopedFile.Text = "Обрати...";
+            buttonChooseEnvelopedFile.UseVisualStyleBackColor = true;
+            buttonChooseEnvelopedFile.Click += ChooseEnvelopedFile;
+            // 
+            // buttonEnvelopFile
+            // 
+            buttonEnvelopFile.Location = new Point(416, 80);
+            buttonEnvelopFile.Margin = new Padding(4, 3, 4, 3);
+            buttonEnvelopFile.Name = "buttonEnvelopFile";
+            buttonEnvelopFile.Size = new Size(175, 25);
+            buttonEnvelopFile.TabIndex = 19;
+            buttonEnvelopFile.Text = "Зашифрувати...";
+            buttonEnvelopFile.UseVisualStyleBackColor = true;
+            buttonEnvelopFile.Click += EnvelopFile;
+            // 
+            // textBoxFileToEnvelop
+            // 
+            textBoxFileToEnvelop.Location = new Point(37, 50);
+            textBoxFileToEnvelop.Margin = new Padding(4, 3, 4, 3);
+            textBoxFileToEnvelop.Name = "textBoxFileToEnvelop";
+            textBoxFileToEnvelop.Size = new Size(438, 23);
+            textBoxFileToEnvelop.TabIndex = 17;
+            // 
+            // labelEncryptFile
+            // 
+            labelEncryptFile.Location = new Point(37, 30);
+            labelEncryptFile.Margin = new Padding(0);
+            labelEncryptFile.Name = "labelEncryptFile";
+            labelEncryptFile.Size = new Size(196, 15);
+            labelEncryptFile.TabIndex = 11;
+            labelEncryptFile.Text = "Файл для зашифрування:";
+            // 
+            // buttonChooseFileToEnvelop
+            // 
+            buttonChooseFileToEnvelop.Location = new Point(483, 50);
+            buttonChooseFileToEnvelop.Margin = new Padding(4, 3, 4, 3);
+            buttonChooseFileToEnvelop.Name = "buttonChooseFileToEnvelop";
+            buttonChooseFileToEnvelop.Size = new Size(108, 25);
+            buttonChooseFileToEnvelop.TabIndex = 18;
+            buttonChooseFileToEnvelop.Text = "Обрати...";
+            buttonChooseFileToEnvelop.UseVisualStyleBackColor = true;
+            buttonChooseFileToEnvelop.Click += ChooseFileToEnvelop;
+            // 
+            // labelEncryptFileTitle
+            // 
+            labelEncryptFileTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            labelEncryptFileTitle.Location = new Point(19, 7);
+            labelEncryptFileTitle.Margin = new Padding(4, 0, 4, 0);
+            labelEncryptFileTitle.Name = "labelEncryptFileTitle";
+            labelEncryptFileTitle.Size = new Size(565, 15);
+            labelEncryptFileTitle.TabIndex = 8;
+            labelEncryptFileTitle.Text = "Шифрування файлів";
+            // 
+            // pictureBoxSplitEncryptFile
+            // 
+            pictureBoxSplitEncryptFile.Dock = DockStyle.Bottom;
+            pictureBoxSplitEncryptFile.Image = Properties.Resources.RPK_SplitImage;
+            pictureBoxSplitEncryptFile.Location = new Point(0, 239);
+            pictureBoxSplitEncryptFile.Margin = new Padding(4, 3, 4, 3);
+            pictureBoxSplitEncryptFile.Name = "pictureBoxSplitEncryptFile";
+            pictureBoxSplitEncryptFile.Size = new Size(607, 1);
+            pictureBoxSplitEncryptFile.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxSplitEncryptFile.TabIndex = 4;
+            pictureBoxSplitEncryptFile.TabStop = false;
+            // 
+            // panelTest
+            // 
+            panelTest.Controls.Add(buttonEnvelopAppendDataTest);
+            panelTest.Controls.Add(buttonEnvelopFileTest);
+            panelTest.Controls.Add(buttonEnvelopDataTest);
+            panelTest.Controls.Add(labelTestTitle);
+            panelTest.Controls.Add(pictureBoxSplitTest);
+            panelTest.Dock = DockStyle.Top;
+            panelTest.Location = new Point(0, 615);
+            panelTest.Margin = new Padding(4, 3, 4, 3);
+            panelTest.Name = "panelTest";
+            panelTest.Size = new Size(607, 69);
+            panelTest.TabIndex = 14;
+            // 
+            // buttonEnvelopAppendDataTest
+            // 
+            buttonEnvelopAppendDataTest.Location = new Point(401, 36);
+            buttonEnvelopAppendDataTest.Margin = new Padding(4, 3, 4, 3);
+            buttonEnvelopAppendDataTest.Name = "buttonEnvelopAppendDataTest";
+            buttonEnvelopAppendDataTest.Size = new Size(190, 25);
+            buttonEnvelopAppendDataTest.TabIndex = 29;
+            buttonEnvelopAppendDataTest.Text = "Шифр. (декілька ключів)...";
+            buttonEnvelopAppendDataTest.UseVisualStyleBackColor = true;
+            buttonEnvelopAppendDataTest.Click += RunCtxEnvelopTest;
+            // 
+            // buttonEnvelopFileTest
+            // 
+            buttonEnvelopFileTest.Location = new Point(219, 36);
+            buttonEnvelopFileTest.Margin = new Padding(4, 3, 4, 3);
+            buttonEnvelopFileTest.Name = "buttonEnvelopFileTest";
+            buttonEnvelopFileTest.Size = new Size(175, 25);
+            buttonEnvelopFileTest.TabIndex = 28;
+            buttonEnvelopFileTest.Text = "Шифрування файлів...";
+            buttonEnvelopFileTest.UseVisualStyleBackColor = true;
+            buttonEnvelopFileTest.Click += RunEnvelopFileTest;
+            // 
+            // buttonEnvelopDataTest
+            // 
+            buttonEnvelopDataTest.Location = new Point(37, 36);
+            buttonEnvelopDataTest.Margin = new Padding(4, 3, 4, 3);
+            buttonEnvelopDataTest.Name = "buttonEnvelopDataTest";
+            buttonEnvelopDataTest.Size = new Size(175, 25);
+            buttonEnvelopDataTest.TabIndex = 27;
+            buttonEnvelopDataTest.Text = "Шифрування даних...";
+            buttonEnvelopDataTest.UseVisualStyleBackColor = true;
+            buttonEnvelopDataTest.Click += RunEnvelopDataTest;
+            // 
+            // labelTestTitle
+            // 
+            labelTestTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            labelTestTitle.Location = new Point(19, 7);
+            labelTestTitle.Margin = new Padding(4, 0, 4, 0);
+            labelTestTitle.Name = "labelTestTitle";
+            labelTestTitle.Size = new Size(565, 15);
+            labelTestTitle.TabIndex = 5;
+            labelTestTitle.Text = "Тестування";
+            // 
+            // pictureBoxSplitTest
+            // 
+            pictureBoxSplitTest.Dock = DockStyle.Bottom;
+            pictureBoxSplitTest.Image = Properties.Resources.RPK_SplitImage;
+            pictureBoxSplitTest.Location = new Point(0, 68);
+            pictureBoxSplitTest.Margin = new Padding(4, 3, 4, 3);
+            pictureBoxSplitTest.Name = "pictureBoxSplitTest";
+            pictureBoxSplitTest.Size = new Size(607, 1);
+            pictureBoxSplitTest.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxSplitTest.TabIndex = 4;
+            pictureBoxSplitTest.TabStop = false;
+            pictureBoxSplitTest.Visible = false;
+            // 
+            // saveFileDialog
+            // 
+            saveFileDialog.FileName = "certificate.cer";
+            saveFileDialog.Filter = "Сертифікат (*.cer)|*.cer";
+            // 
+            // EnvelopUsage
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(panelTest);
+            Controls.Add(panelEncryptFile);
+            Controls.Add(panelEncryptData);
+            Controls.Add(panelParams);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "EnvelopUsage";
+            Size = new Size(607, 762);
+            panelParams.ResumeLayout(false);
+            panelParams.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSplitParams).EndInit();
+            panelEncryptData.ResumeLayout(false);
+            panelEncryptData.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSplitEncryptData).EndInit();
+            panelEncryptFile.ResumeLayout(false);
+            panelEncryptFile.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSplitEncryptFile).EndInit();
+            panelTest.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSplitTest).EndInit();
+            ResumeLayout(false);
 
-		}
+        }
 
-		#endregion
+        #endregion
 
-		private System.Windows.Forms.Panel panelParams;
+        private System.Windows.Forms.Panel panelParams;
 		private System.Windows.Forms.CheckBox checkBoxAddSignature;
 		private System.Windows.Forms.Label labelParams;
 		private System.Windows.Forms.PictureBox pictureBoxSplitParams;

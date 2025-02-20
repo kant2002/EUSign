@@ -60,254 +60,268 @@ namespace EUSignTestCS
 			base.Dispose( disposing );
 		}
 
-		#region Windows Form Designer generated code
-		private void InitializeComponent()
-		{
-			this.buttonInitialize = new System.Windows.Forms.Button();
-			this.buttonParameters = new System.Windows.Forms.Button();
-			this.buttonGetHostInfo = new System.Windows.Forms.Button();
-			this.checkBoxUseOwnGUI = new System.Windows.Forms.CheckBox();
-			this.checkBoxOfflineMode = new System.Windows.Forms.CheckBox();
-			this.tabControlUsage = new System.Windows.Forms.TabControl();
-			this.CertAndCRLs = new System.Windows.Forms.TabPage();
-			this.certAndCRLUsage = new EUSignTestCS.TabPages.CertAndCRLUsage();
-			this.PrivKey = new System.Windows.Forms.TabPage();
-			this.privateKeyUsage = new EUSignTestCS.TabPages.PrivateKeyUsage();
-			this.Sign = new System.Windows.Forms.TabPage();
-			this.signUsage = new EUSignTestCS.TabPages.SignUsage();
-			this.Envelop = new System.Windows.Forms.TabPage();
-			this.envelopUsage = new EUSignTestCS.TabPages.EnvelopUsage();
-			this.Session = new System.Windows.Forms.TabPage();
-			this.sessionUsage = new EUSignTestCS.TabPages.SessionUsage();
-			this.DeviceContext = new System.Windows.Forms.TabPage();
-			this.pictureBoxSearchCertificate = new System.Windows.Forms.PictureBox();
-			this.deviceContextUsage = new EUSignTestCS.TabPages.DeviceContextUsage();
-			this.tabControlUsage.SuspendLayout();
-			this.CertAndCRLs.SuspendLayout();
-			this.PrivKey.SuspendLayout();
-			this.Sign.SuspendLayout();
-			this.Envelop.SuspendLayout();
-			this.Session.SuspendLayout();
-			this.DeviceContext.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearchCertificate)).BeginInit();
-			this.SuspendLayout();
-			// 
-			// buttonInitialize
-			// 
-			this.buttonInitialize.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.buttonInitialize.Location = new System.Drawing.Point(12, 12);
-			this.buttonInitialize.Name = "buttonInitialize";
-			this.buttonInitialize.Size = new System.Drawing.Size(150, 23);
-			this.buttonInitialize.TabIndex = 0;
-			this.buttonInitialize.Text = "Ініціалізувати...";
-			this.buttonInitialize.Click += new System.EventHandler(this.Initialize);
-			// 
-			// buttonParameters
-			// 
-			this.buttonParameters.Enabled = false;
-			this.buttonParameters.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.buttonParameters.Location = new System.Drawing.Point(12, 41);
-			this.buttonParameters.Name = "buttonParameters";
-			this.buttonParameters.Size = new System.Drawing.Size(150, 23);
-			this.buttonParameters.TabIndex = 1;
-			this.buttonParameters.Text = "Параметри...";
-			this.buttonParameters.Click += new System.EventHandler(this.SetParameters);
-			// 
-			// buttonGetHostInfo
-			// 
-			this.buttonGetHostInfo.Enabled = false;
-			this.buttonGetHostInfo.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.buttonGetHostInfo.Location = new System.Drawing.Point(12, 70);
-			this.buttonGetHostInfo.Name = "buttonGetHostInfo";
-			this.buttonGetHostInfo.Size = new System.Drawing.Size(150, 23);
-			this.buttonGetHostInfo.TabIndex = 1;
-			this.buttonGetHostInfo.Text = "Інформація про ОС";
-			this.buttonGetHostInfo.Click += new System.EventHandler(this.GetHostInfo);
-			// 
-			// checkBoxUseOwnGUI
-			// 
-			this.checkBoxUseOwnGUI.AutoSize = true;
-			this.checkBoxUseOwnGUI.Checked = true;
-			this.checkBoxUseOwnGUI.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBoxUseOwnGUI.Location = new System.Drawing.Point(12, 99);
-			this.checkBoxUseOwnGUI.Name = "checkBoxUseOwnGUI";
-			this.checkBoxUseOwnGUI.Size = new System.Drawing.Size(165, 17);
-			this.checkBoxUseOwnGUI.TabIndex = 7;
-			this.checkBoxUseOwnGUI.Text = "Відображати власні діалоги";
-			this.checkBoxUseOwnGUI.UseVisualStyleBackColor = true;
-			// 
-			// checkBoxOfflineMode
-			// 
-			this.checkBoxOfflineMode.AutoSize = true;
-			this.checkBoxOfflineMode.Enabled = false;
-			this.checkBoxOfflineMode.Location = new System.Drawing.Point(12, 122);
-			this.checkBoxOfflineMode.Name = "checkBoxOfflineMode";
-			this.checkBoxOfflineMode.Size = new System.Drawing.Size(96, 17);
-			this.checkBoxOfflineMode.TabIndex = 8;
-			this.checkBoxOfflineMode.Text = "Off-line режим";
-			this.checkBoxOfflineMode.UseVisualStyleBackColor = true;
-			this.checkBoxOfflineMode.CheckedChanged += new System.EventHandler(this.checkBoxOfflineMode_CheckedChanged);
-			// 
-			// tabControlUsage
-			// 
-			this.tabControlUsage.Controls.Add(this.CertAndCRLs);
-			this.tabControlUsage.Controls.Add(this.PrivKey);
-			this.tabControlUsage.Controls.Add(this.Sign);
-			this.tabControlUsage.Controls.Add(this.Envelop);
-			this.tabControlUsage.Controls.Add(this.Session);
-			this.tabControlUsage.Controls.Add(this.DeviceContext);
-			this.tabControlUsage.Location = new System.Drawing.Point(12, 159);
-			this.tabControlUsage.Name = "tabControlUsage";
-			this.tabControlUsage.SelectedIndex = 0;
-			this.tabControlUsage.Size = new System.Drawing.Size(520, 735);
-			this.tabControlUsage.TabIndex = 37;
-			this.tabControlUsage.SelectedIndexChanged += new System.EventHandler(this.tabControlUsage_SelectedIndexChanged);
-			// 
-			// CertAndCRLs
-			// 
-			this.CertAndCRLs.Controls.Add(this.certAndCRLUsage);
-			this.CertAndCRLs.Location = new System.Drawing.Point(4, 22);
-			this.CertAndCRLs.Name = "CertAndCRLs";
-			this.CertAndCRLs.Padding = new System.Windows.Forms.Padding(3);
-			this.CertAndCRLs.Size = new System.Drawing.Size(512, 669);
-			this.CertAndCRLs.TabIndex = 0;
-			this.CertAndCRLs.Text = "Сертифікати та СВС";
-			this.CertAndCRLs.UseVisualStyleBackColor = true;
-			// 
-			// certAndCRLUsage
-			// 
-			this.certAndCRLUsage.Location = new System.Drawing.Point(0, 0);
-			this.certAndCRLUsage.Name = "certAndCRLUsage";
-			this.certAndCRLUsage.Size = new System.Drawing.Size(520, 660);
-			this.certAndCRLUsage.TabIndex = 0;
-			// 
-			// PrivKey
-			// 
-			this.PrivKey.Controls.Add(this.privateKeyUsage);
-			this.PrivKey.Location = new System.Drawing.Point(4, 22);
-			this.PrivKey.Name = "PrivKey";
-			this.PrivKey.Padding = new System.Windows.Forms.Padding(3);
-			this.PrivKey.Size = new System.Drawing.Size(512, 669);
-			this.PrivKey.TabIndex = 1;
-			this.PrivKey.Text = "Особистий ключ";
-			this.PrivKey.UseVisualStyleBackColor = true;
-			// 
-			// privateKeyUsage
-			// 
-			this.privateKeyUsage.Location = new System.Drawing.Point(0, 0);
-			this.privateKeyUsage.Name = "privateKeyUsage";
-			this.privateKeyUsage.Size = new System.Drawing.Size(520, 660);
-			this.privateKeyUsage.TabIndex = 0;
-			// 
-			// Sign
-			// 
-			this.Sign.Controls.Add(this.signUsage);
-			this.Sign.Location = new System.Drawing.Point(4, 22);
-			this.Sign.Name = "Sign";
-			this.Sign.Size = new System.Drawing.Size(512, 669);
-			this.Sign.TabIndex = 2;
-			this.Sign.Text = "ЕЦП";
-			this.Sign.UseVisualStyleBackColor = true;
-			// 
-			// signUsage
-			// 
-			this.signUsage.Location = new System.Drawing.Point(0, 0);
-			this.signUsage.Name = "signUsage";
-			this.signUsage.Size = new System.Drawing.Size(520, 700);
-			this.signUsage.TabIndex = 0;
-			// 
-			// Envelop
-			// 
-			this.Envelop.Controls.Add(this.envelopUsage);
-			this.Envelop.Location = new System.Drawing.Point(4, 22);
-			this.Envelop.Name = "Envelop";
-			this.Envelop.Size = new System.Drawing.Size(512, 669);
-			this.Envelop.TabIndex = 3;
-			this.Envelop.Text = "Шифрування";
-			this.Envelop.UseVisualStyleBackColor = true;
-			// 
-			// envelopUsage
-			// 
-			this.envelopUsage.Location = new System.Drawing.Point(0, 0);
-			this.envelopUsage.Name = "envelopUsage";
-			this.envelopUsage.Size = new System.Drawing.Size(520, 660);
-			this.envelopUsage.TabIndex = 0;
-			// 
-			// Session
-			// 
-			this.Session.Controls.Add(this.sessionUsage);
-			this.Session.Location = new System.Drawing.Point(4, 22);
-			this.Session.Name = "Session";
-			this.Session.Size = new System.Drawing.Size(512, 669);
-			this.Session.TabIndex = 4;
-			this.Session.Text = "Тестування сесії";
-			this.Session.UseVisualStyleBackColor = true;
-			// 
-			// sessionUsage
-			// 
-			this.sessionUsage.Location = new System.Drawing.Point(0, 0);
-			this.sessionUsage.Name = "sessionUsage";
-			this.sessionUsage.Size = new System.Drawing.Size(520, 660);
-			this.sessionUsage.TabIndex = 0;
-			// 
-			// DeviceContext
-			// 
-			this.DeviceContext.Controls.Add(this.deviceContextUsage);
-			this.DeviceContext.Location = new System.Drawing.Point(4, 22);
-			this.DeviceContext.Name = "DeviceContext";
-			this.DeviceContext.Size = new System.Drawing.Size(512, 669);
-			this.DeviceContext.TabIndex = 5;
-			this.DeviceContext.Text = "Контекст пристрою";
-			this.DeviceContext.UseVisualStyleBackColor = true;
-			// 
-			// pictureBoxSearchCertificate
-			// 
-			this.pictureBoxSearchCertificate.Image = global::EUSignTestCS.Properties.Resources.RPK_SplitImage;
-			this.pictureBoxSearchCertificate.Location = new System.Drawing.Point(12, 145);
-			this.pictureBoxSearchCertificate.Name = "pictureBoxSearchCertificate";
-			this.pictureBoxSearchCertificate.Size = new System.Drawing.Size(520, 1);
-			this.pictureBoxSearchCertificate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBoxSearchCertificate.TabIndex = 38;
-			this.pictureBoxSearchCertificate.TabStop = false;
-			// 
-			// deviceContextUsage
-			// 
-			this.deviceContextUsage.Location = new System.Drawing.Point(3, 3);
-			this.deviceContextUsage.Name = "deviceContextUsage";
-			this.deviceContextUsage.Size = new System.Drawing.Size(520, 660);
-			this.deviceContextUsage.TabIndex = 0;
-			// 
-			// MainForm
-			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(545, 897);
-			this.Controls.Add(this.pictureBoxSearchCertificate);
-			this.Controls.Add(this.tabControlUsage);
-			this.Controls.Add(this.checkBoxOfflineMode);
-			this.Controls.Add(this.checkBoxUseOwnGUI);
-			this.Controls.Add(this.buttonGetHostInfo);
-			this.Controls.Add(this.buttonParameters);
-			this.Controls.Add(this.buttonInitialize);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-			this.MaximizeBox = false;
-			this.Name = "MainForm";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "ІІТ Користувач ЦСК-1. Бібліотека підпису";
-			this.tabControlUsage.ResumeLayout(false);
-			this.CertAndCRLs.ResumeLayout(false);
-			this.PrivKey.ResumeLayout(false);
-			this.Sign.ResumeLayout(false);
-			this.Envelop.ResumeLayout(false);
-			this.Session.ResumeLayout(false);
-			this.DeviceContext.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearchCertificate)).EndInit();
-			this.ResumeLayout(false);
-			this.PerformLayout();
+        #region Windows Form Designer generated code
+        private void InitializeComponent()
+        {
+            buttonInitialize = new Button();
+            buttonParameters = new Button();
+            buttonGetHostInfo = new Button();
+            checkBoxUseOwnGUI = new CheckBox();
+            checkBoxOfflineMode = new CheckBox();
+            tabControlUsage = new TabControl();
+            CertAndCRLs = new TabPage();
+            certAndCRLUsage = new CertAndCRLUsage();
+            PrivKey = new TabPage();
+            privateKeyUsage = new PrivateKeyUsage();
+            Sign = new TabPage();
+            signUsage = new SignUsage();
+            Envelop = new TabPage();
+            envelopUsage = new EnvelopUsage();
+            Session = new TabPage();
+            sessionUsage = new SessionUsage();
+            DeviceContext = new TabPage();
+            deviceContextUsage = new DeviceContextUsage();
+            pictureBoxSearchCertificate = new PictureBox();
+            tabControlUsage.SuspendLayout();
+            CertAndCRLs.SuspendLayout();
+            PrivKey.SuspendLayout();
+            Sign.SuspendLayout();
+            Envelop.SuspendLayout();
+            Session.SuspendLayout();
+            DeviceContext.SuspendLayout();
+            ((ISupportInitialize)pictureBoxSearchCertificate).BeginInit();
+            SuspendLayout();
+            // 
+            // buttonInitialize
+            // 
+            buttonInitialize.FlatStyle = FlatStyle.System;
+            buttonInitialize.Location = new Point(14, 15);
+            buttonInitialize.Name = "buttonInitialize";
+            buttonInitialize.Size = new Size(180, 28);
+            buttonInitialize.TabIndex = 0;
+            buttonInitialize.Text = "Ініціалізувати...";
+            buttonInitialize.Click += Initialize;
+            // 
+            // buttonParameters
+            // 
+            buttonParameters.Enabled = false;
+            buttonParameters.FlatStyle = FlatStyle.System;
+            buttonParameters.Location = new Point(14, 50);
+            buttonParameters.Name = "buttonParameters";
+            buttonParameters.Size = new Size(180, 29);
+            buttonParameters.TabIndex = 1;
+            buttonParameters.Text = "Параметри...";
+            buttonParameters.Click += SetParameters;
+            // 
+            // buttonGetHostInfo
+            // 
+            buttonGetHostInfo.Enabled = false;
+            buttonGetHostInfo.FlatStyle = FlatStyle.System;
+            buttonGetHostInfo.Location = new Point(14, 86);
+            buttonGetHostInfo.Name = "buttonGetHostInfo";
+            buttonGetHostInfo.Size = new Size(180, 28);
+            buttonGetHostInfo.TabIndex = 1;
+            buttonGetHostInfo.Text = "Інформація про ОС";
+            buttonGetHostInfo.Click += GetHostInfo;
+            // 
+            // checkBoxUseOwnGUI
+            // 
+            checkBoxUseOwnGUI.AutoSize = true;
+            checkBoxUseOwnGUI.Checked = true;
+            checkBoxUseOwnGUI.CheckState = CheckState.Checked;
+            checkBoxUseOwnGUI.Location = new Point(14, 122);
+            checkBoxUseOwnGUI.Name = "checkBoxUseOwnGUI";
+            checkBoxUseOwnGUI.Size = new Size(178, 19);
+            checkBoxUseOwnGUI.TabIndex = 7;
+            checkBoxUseOwnGUI.Text = "Відображати власні діалоги";
+            checkBoxUseOwnGUI.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxOfflineMode
+            // 
+            checkBoxOfflineMode.AutoSize = true;
+            checkBoxOfflineMode.Enabled = false;
+            checkBoxOfflineMode.Location = new Point(14, 150);
+            checkBoxOfflineMode.Name = "checkBoxOfflineMode";
+            checkBoxOfflineMode.Size = new Size(108, 19);
+            checkBoxOfflineMode.TabIndex = 8;
+            checkBoxOfflineMode.Text = "Off-line режим";
+            checkBoxOfflineMode.UseVisualStyleBackColor = true;
+            checkBoxOfflineMode.CheckedChanged += checkBoxOfflineMode_CheckedChanged;
+            // 
+            // tabControlUsage
+            // 
+            tabControlUsage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tabControlUsage.Controls.Add(CertAndCRLs);
+            tabControlUsage.Controls.Add(PrivKey);
+            tabControlUsage.Controls.Add(Sign);
+            tabControlUsage.Controls.Add(Envelop);
+            tabControlUsage.Controls.Add(Session);
+            tabControlUsage.Controls.Add(DeviceContext);
+            tabControlUsage.Location = new Point(14, 196);
+            tabControlUsage.Name = "tabControlUsage";
+            tabControlUsage.SelectedIndex = 0;
+            tabControlUsage.Size = new Size(744, 779);
+            tabControlUsage.TabIndex = 37;
+            tabControlUsage.SelectedIndexChanged += tabControlUsage_SelectedIndexChanged;
+            // 
+            // CertAndCRLs
+            // 
+            CertAndCRLs.Controls.Add(certAndCRLUsage);
+            CertAndCRLs.Location = new Point(4, 24);
+            CertAndCRLs.Name = "CertAndCRLs";
+            CertAndCRLs.Padding = new Padding(3);
+            CertAndCRLs.Size = new Size(736, 751);
+            CertAndCRLs.TabIndex = 0;
+            CertAndCRLs.Text = "Сертифікати та СВС";
+            CertAndCRLs.UseVisualStyleBackColor = true;
+            // 
+            // certAndCRLUsage
+            // 
+            certAndCRLUsage.Dock = DockStyle.Fill;
+            certAndCRLUsage.Location = new Point(3, 3);
+            certAndCRLUsage.Margin = new Padding(4, 3, 4, 3);
+            certAndCRLUsage.Name = "certAndCRLUsage";
+            certAndCRLUsage.Size = new Size(730, 745);
+            certAndCRLUsage.TabIndex = 0;
+            // 
+            // PrivKey
+            // 
+            PrivKey.Controls.Add(privateKeyUsage);
+            PrivKey.Location = new Point(4, 24);
+            PrivKey.Name = "PrivKey";
+            PrivKey.Padding = new Padding(3);
+            PrivKey.Size = new Size(736, 751);
+            PrivKey.TabIndex = 1;
+            PrivKey.Text = "Особистий ключ";
+            PrivKey.UseVisualStyleBackColor = true;
+            // 
+            // privateKeyUsage
+            // 
+            privateKeyUsage.Dock = DockStyle.Fill;
+            privateKeyUsage.Location = new Point(3, 3);
+            privateKeyUsage.Margin = new Padding(4, 3, 4, 3);
+            privateKeyUsage.Name = "privateKeyUsage";
+            privateKeyUsage.Size = new Size(730, 745);
+            privateKeyUsage.TabIndex = 0;
+            // 
+            // Sign
+            // 
+            Sign.Controls.Add(signUsage);
+            Sign.Location = new Point(4, 24);
+            Sign.Name = "Sign";
+            Sign.Size = new Size(736, 751);
+            Sign.TabIndex = 2;
+            Sign.Text = "ЕЦП";
+            Sign.UseVisualStyleBackColor = true;
+            // 
+            // signUsage
+            // 
+            signUsage.AutoScroll = true;
+            signUsage.Dock = DockStyle.Fill;
+            signUsage.Location = new Point(0, 0);
+            signUsage.Margin = new Padding(4, 3, 4, 3);
+            signUsage.Name = "signUsage";
+            signUsage.Size = new Size(736, 751);
+            signUsage.TabIndex = 0;
+            // 
+            // Envelop
+            // 
+            Envelop.Controls.Add(envelopUsage);
+            Envelop.Location = new Point(4, 24);
+            Envelop.Name = "Envelop";
+            Envelop.Size = new Size(736, 751);
+            Envelop.TabIndex = 3;
+            Envelop.Text = "Шифрування";
+            Envelop.UseVisualStyleBackColor = true;
+            // 
+            // envelopUsage
+            // 
+            envelopUsage.Dock = DockStyle.Fill;
+            envelopUsage.Location = new Point(0, 0);
+            envelopUsage.Margin = new Padding(4, 3, 4, 3);
+            envelopUsage.Name = "envelopUsage";
+            envelopUsage.Size = new Size(736, 751);
+            envelopUsage.TabIndex = 0;
+            // 
+            // Session
+            // 
+            Session.Controls.Add(sessionUsage);
+            Session.Location = new Point(4, 24);
+            Session.Name = "Session";
+            Session.Size = new Size(736, 751);
+            Session.TabIndex = 4;
+            Session.Text = "Тестування сесії";
+            Session.UseVisualStyleBackColor = true;
+            // 
+            // sessionUsage
+            // 
+            sessionUsage.Dock = DockStyle.Fill;
+            sessionUsage.Location = new Point(0, 0);
+            sessionUsage.Margin = new Padding(4, 3, 4, 3);
+            sessionUsage.Name = "sessionUsage";
+            sessionUsage.Size = new Size(736, 751);
+            sessionUsage.TabIndex = 0;
+            // 
+            // DeviceContext
+            // 
+            DeviceContext.Controls.Add(deviceContextUsage);
+            DeviceContext.Location = new Point(4, 24);
+            DeviceContext.Name = "DeviceContext";
+            DeviceContext.Size = new Size(736, 751);
+            DeviceContext.TabIndex = 5;
+            DeviceContext.Text = "Контекст пристрою";
+            DeviceContext.UseVisualStyleBackColor = true;
+            // 
+            // deviceContextUsage
+            // 
+            deviceContextUsage.Dock = DockStyle.Fill;
+            deviceContextUsage.Location = new Point(0, 0);
+            deviceContextUsage.Margin = new Padding(4, 3, 4, 3);
+            deviceContextUsage.Name = "deviceContextUsage";
+            deviceContextUsage.Size = new Size(736, 751);
+            deviceContextUsage.TabIndex = 0;
+            // 
+            // pictureBoxSearchCertificate
+            // 
+            pictureBoxSearchCertificate.Image = Properties.Resources.RPK_SplitImage;
+            pictureBoxSearchCertificate.Location = new Point(14, 178);
+            pictureBoxSearchCertificate.Name = "pictureBoxSearchCertificate";
+            pictureBoxSearchCertificate.Size = new Size(624, 2);
+            pictureBoxSearchCertificate.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxSearchCertificate.TabIndex = 38;
+            pictureBoxSearchCertificate.TabStop = false;
+            // 
+            // MainForm
+            // 
+            AutoScaleBaseSize = new Size(6, 16);
+            ClientSize = new Size(770, 987);
+            Controls.Add(pictureBoxSearchCertificate);
+            Controls.Add(tabControlUsage);
+            Controls.Add(checkBoxOfflineMode);
+            Controls.Add(checkBoxUseOwnGUI);
+            Controls.Add(buttonGetHostInfo);
+            Controls.Add(buttonParameters);
+            Controls.Add(buttonInitialize);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            MaximizeBox = false;
+            Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "ІІТ Користувач ЦСК-1. Бібліотека підпису";
+            tabControlUsage.ResumeLayout(false);
+            CertAndCRLs.ResumeLayout(false);
+            PrivKey.ResumeLayout(false);
+            Sign.ResumeLayout(false);
+            Envelop.ResumeLayout(false);
+            Session.ResumeLayout(false);
+            DeviceContext.ResumeLayout(false);
+            ((ISupportInitialize)pictureBoxSearchCertificate).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
-		}
-		#endregion
+        }
+        #endregion
 
-		private void Initialize(object sender, System.EventArgs e)
+        private void Initialize(object sender, System.EventArgs e)
 		{
 			bool enabled;
 			int error;
