@@ -2,29 +2,32 @@
 
 public partial class IEUSignCP
 {
+    /// <summary>
+    /// Структура із описом інформації про підпис (сертифікат підписувача та час підпису).
+    /// </summary>
     public struct EU_SIGN_INFO
     {
-        public bool filled;
-        public string issuer;
-        public string issuerCN;
-        public string serial;
-        public string subject;
-        public string subjCN;
-        public string subjOrg;
-        public string subjOrgUnit;
-        public string subjTitle;
-        public string subjState;
-        public string subjLocality;
-        public string subjFullName;
-        public string subjAddress;
-        public string subjPhone;
-        public string subjEMail;
-        public string subjDNS;
-        public string subjEDRPOUCode;
-        public string subjDRFOCode;
-        public bool timeAvail;
-        public bool timeStamp;
-        public SYSTEMTIME time;
+        public bool filled;           // Признак заповнення структури.
+        public string issuer;         // Ім'я ЦСК, що видав сертифікат.
+        public string issuerCN;       // Реквізити ЦСК, що видав сертифікат.
+        public string serial;         // Реєстраційний номер сертифіката.
+        public string subject;        // Ім'я власника сертифіката.
+        public string subjCN;         // Реквізити власника сертифіката.
+        public string subjOrg;        // Організація, до якої належить власник сертифіката.
+        public string subjOrgUnit;    // Підрозділ організації, до якої належить власник сертифіката.
+        public string subjTitle;      // Посада власника сертифіката.
+        public string subjState;      // Назва області, до якої належить власник сертифіката.
+        public string subjLocality;   // Назва населеного пункту, до якого належить власник сертифіката.
+        public string subjFullName;   // Повне ім'я власника сертифіката.
+        public string subjAddress;    // Адреса власника сертифіката.
+        public string subjPhone;      // Номер телефону власника сертифіката.
+        public string subjEMail;      // Адреса електронної пошти власника сертифіката.
+        public string subjDNS;        // DNS-ім'я чи інше технічного засобу.
+        public string subjEDRPOUCode; // Код ЄДРПОУ власника сертифіката.
+        public string subjDRFOCode;   // Код ДРФО власника сертифіката.
+        public bool timeAvail;        // Признак наявності часу підпису.
+        public bool timeStamp;        // Признак наявності позначки часу отриманої з TSP сервера.
+        public SYSTEMTIME time;       // Час підпису або позначка часу.
 
         public IntPtr intSignInfo;
         public EUMarshal signInfoPtr;

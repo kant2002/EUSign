@@ -2,63 +2,66 @@
 
 public partial class IEUSignCP
 {
+    /// <summary>
+    /// Структура із описом детальної інформації про сертифікат (розширена).
+    /// </summary>
     public struct EU_CERT_INFO_EX
     {
-        public bool filled;
-        public int version;
-        public string issuer;
-        public string issuerCN;
-        public string serial;
-        public string subject;
-        public string subjCN;
-        public string subjOrg;
-        public string subjOrgUnit;
-        public string subjTitle;
-        public string subjState;
-        public string subjLocality;
-        public string subjFullName;
-        public string subjAddress;
-        public string subjPhone;
-        public string subjEMail;
-        public string subjDNS;
-        public string subjEDRPOUCode;
-        public string subjDRFOCode;
-        public string subjNBUCode;
-        public string subjSPFMCode;
-        public string subjOCode;
-        public string subjOUCode;
-        public string subjUserCode;
-        public SYSTEMTIME certBeginTime;
-        public SYSTEMTIME certEndTime;
-        public bool privKeyTimesExists;
-        public SYSTEMTIME privKeyBeginTime;
-        public SYSTEMTIME privKeyEndTime;
-        public int publicKeyBits;
-        public string publicKey;
-        public string publicKeyID;
-        public string issuerPublicKeyID;
-        public string keyUsage;
-        public string extKeyUsages;
-        public string policies;
-        public string crlDistribPoint1;
-        public string crlDistribPoint2;
-        public bool powerCert;
-        public bool subjType;
-        public bool subjCA;
-        public int chainLength;
-        public string UPN;
-        public int publicKeyType;
-        public int keyUsageType;
-        public string RSAModul;
-        public string RSAExponent;
-        public string OCSPAccessInfo;
-        public string issuerAccessInfo;
-        public string TSPAccessInfo;
-        public bool limitValueAvailable;
-        public int limitValue;
-        public string limitValueCurrency;
-        public EU_SUBJECT_TYPE subjectType;
-        public EU_SUBJECT_SUB_TYPE subjectSubType;
+        public bool filled;                 // Признак заповнення структури.
+        public int version;                 // Версія структури з сертифікатом.
+        public string issuer;               // Ім'я ЦСК, що видав сертифікат.
+        public string issuerCN;             // Реквізити ЦСК, що видав сертифікат.
+        public string serial;               // Реєстраційний номер сертифіката.
+        public string subject;              // Ім'я власника сертифіката.
+        public string subjCN;               // Реквізити власника сертифіката. 
+        public string subjOrg;              // Організація до якої належить, власник сертифіката.
+        public string subjOrgUnit;          // Підрозділ організації, до якої належить власник сертифіката.
+        public string subjTitle;            // Посада власника сертифіката.
+        public string subjState;            // Назва області, до якої належить власник сертифіката.
+        public string subjLocality;         // Назва населеного пункту до якого, належить власник сертифіката.
+        public string subjFullName;         // Повне ім'я власника сертифіката.
+        public string subjAddress;          // Адреса власника сертифіката.
+        public string subjPhone;            // Номер телефону власника сертифіката.
+        public string subjEMail;            // Адреса електронної пошти власника сертифіката.
+        public string subjDNS;              // DNS-ім'я чи інше технічного засобу.
+        public string subjEDRPOUCode;       // Код ЄДРПОУ власника сертифіката.
+        public string subjDRFOCode;         // Код ДРФО власника сертифіката.
+        public string subjNBUCode;          // Ідентифікатор НБУ власника сертифіката.
+        public string subjSPFMCode;         // Код СПФМ власника сертифіката.
+        public string subjOCode;            // Код організації власника сертифіката.
+        public string subjOUCode;           // Код підрозділу власника сертифіката.
+        public string subjUserCode;         // Код користувача власника сертифіката.
+        public SYSTEMTIME certBeginTime;    // Час введення сертифіката в дію.
+        public SYSTEMTIME certEndTime;      // Дата закінчення дії сертифіката.
+        public bool privKeyTimesExists;     // Признак наявності строку дії особистого ключа.
+        public SYSTEMTIME privKeyBeginTime; // Час введення в дію особистого ключа.
+        public SYSTEMTIME privKeyEndTime;   // Час виведення з дії особистого ключа.
+        public int publicKeyBits;           // Довжина відкритого ключа в бітах.
+        public string publicKey;            // Відкритий ключ у вигляді строки.
+        public string publicKeyID;          // Ідентифікатор відкритого ключа у вигляді строки.
+        public string issuerPublicKeyID;    // Ідентифікатор відкритого ключа ЦСК у вигляді строки.
+        public string keyUsage;             // Використання ключів у вигляді строки. 
+        public string extKeyUsages;         // Уточнене призначення ключів.
+        public string policies;             // Правила сертифікації.
+        public string crlDistribPoint1;     // Точка доступу до повних СВС
+        public string crlDistribPoint2;     // Точка доступу до часткових СВС
+        public bool powerCert;              // Признак того, що сертифікат посилений.
+        public bool subjType;               // Тип власника сертифікату.
+        public bool subjCA;                 // Признак того, що власник сертифікату ЦСК.
+        public int chainLength;		        // Обмеження на довжину ланцюжка сертифікатів.
+        public string UPN;			        // UPN-ім'я власника сертифіката.
+        public int publicKeyType;		    // Тип відкритого ключа.
+        public int keyUsageType;			// Використання ключів у вигляді бітів.
+        public string RSAModul;		        // Модуль RSA у вигляді строки.
+        public string RSAExponent;		    // Експонента RSA у вигляді строки.
+        public string OCSPAccessInfo;	    // Точка доступу до OCSP-сервера.
+        public string issuerAccessInfo;	    // Точка доступу до сертифікатів.
+        public string TSPAccessInfo;		// Точка доступу до TSP-сервера.
+        public bool limitValueAvailable;	// Признак наявності обмеження на транзакцію.
+        public int limitValue;              // Максимальне обмеження на транзакцію.
+        public string limitValueCurrency;	// Валюта максимального обмеження на транзакцію.
+        public EU_SUBJECT_TYPE subjectType;		    // Тип власника сертифіката (поле доступне з dwVersion > 2).
+        public EU_SUBJECT_SUB_TYPE subjectSubType;	// Тип власника сертифіката для серверів ЦСК (поле доступне з dwVersion > 2).
         public string subjUNZR;
         public string subjCountry;
         public string fingerprint;

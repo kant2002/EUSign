@@ -2,6 +2,9 @@
 
 public partial class IEUSignCP
 {
+    /// <summary>
+    /// Інформація про сертифікат.
+    /// </summary>
     public struct EU_CERT_INFO
     {
         public bool filled;

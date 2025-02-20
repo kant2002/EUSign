@@ -70,8 +70,17 @@ public partial class IEUSignCP
 #endif // !OS_NIX
         public static int DWORDLONG_SIZE = 8;
         public const int EU_KEY_MEDIA_SIZE = 81;
+        /// <summary>
+        /// Розмір структури EU_CERT_OWNER_INFO в байтах. 
+        /// </summary>
         public const int EU_CERT_OWNER_INFO_SIZE = 140;
+        /// <summary>
+        /// Розмір структури EU_SIGN_INFO_SIZE в байтах.
+        /// </summary>
         public const int EU_SIGN_INFO_SIZE = 164;
+        /// <summary>
+        /// Розмір структури EU_ENVELOP_INFO_SIZE в байтах.
+        /// </summary>
         public const int EU_SENDER_INFO_SIZE = 164;
         public const int EU_CRL_INFO_SIZE = 60;
         public const int EU_CERT_INFO_SIZE = 368;

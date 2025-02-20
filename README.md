@@ -1,2 +1,3 @@
-# EUSignDFS
-The wrapper for the cryptographic library EUSignCP.DLL
+# EUSign
+
+Огортка для криптографічної бібліотеки EUSignCP.DLL.

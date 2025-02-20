@@ -557,15 +557,31 @@ public partial class IEUSignCP
         int fd, IntPtr descriptors, int descriptorsSize);
 #endif // __ANDROID__
 
+    /// <summary>
+    /// Ініціалізація бібліотеки. 
+    /// Для завантаження бібліотеки без графічного модуля (або графічний модуль відсутній), 
+    /// перед функцією ініціалізації потрібно викликати функцію EUSetUIMode з значенням FALSE.
+    /// </summary>
+    /// <returns>(DWORD) Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern DWORD EUInitialize();
 
+    /// <summary>
+    /// Перевірка стану бібліотеки.
+    /// </summary>
+    /// <returns>(BOOL) Значення true, якщо бібліотека завантажена; в іншому випадку - значення false.</returns>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern BOOL EUIsInitialized();
 
+    /// <summary>
+    /// Завершення роботи з бібліотекою.
+    /// </summary>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern void EUFinalize();
 
+    /// <summary>
+    /// Встановлення параметрів роботи з бібліотекою за допомогою графічного інтерфейсу бібліотеки.
+    /// </summary>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern void EUSetSettings();
 
@@ -591,31 +607,67 @@ public partial class IEUSignCP
     private static extern DWORD EUGetPrivateKeyMediaEx(IntPtr caption,
         IntPtr keyMedia);
 
+    /// <summary>
+    /// Зчитування особистого ключа за допомогою графічного інтерфейсу бібліотеки.
+    /// </summary>
+    /// <param name="pKeyMedia">Вхідний (PEU_KEY_MEDIA). Параметри носія особистого ключа.</param>
+    /// <param name="pCertOwnerInfo">Вихідний (PEU_CERT_OWNER_INFO). Інформація про сертифікат власника.</param>
+    /// <returns>(DWORD) Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     [DllImport(EU_LIBRARY_NAME)]
-    private static extern DWORD EUReadPrivateKey(IntPtr keyMedia,
-        IntPtr certInfo);
+    private static extern DWORD EUReadPrivateKey(IntPtr keyMedia, IntPtr certInfo);
 
+    /// <summary>
+    /// Перевірка наявності зчитаного особистого ключа.
+    /// </summary>
+    /// <returns>(BOOL) Значення true, якщо ключ вже зчитано у пам'ять; в іншому випадку - значення false.</returns>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern BOOL EUIsPrivateKeyReaded();
 
+    /// <summary>
+    /// Затирання особистого ключа у пам'яті.
+    /// </summary>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern void EUResetPrivateKey();
 
+    /// <summary>
+    /// Вивільнення пам'яті з інформацією про сертифікат власника особистого ключа.
+    /// </summary>
+    /// <param name="pCertOwnerInfo">Вхідний (PEU_CERT_OWNER_INFO). Вказівник на дані щодо інформації про cертифікат власника.</param>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern void EUFreeCertOwnerInfo(IntPtr certInfo);
 
+    /// <summary>
+    /// Відображення власного сертифіката за допомогою графічного інтерфейсу бібліотеки.
+    /// </summary>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern void EUShowOwnCertificate();
 
+    /// <summary>
+    /// Відображення інформації про підпис.
+    /// </summary>
+    /// <param name="pSignInfo">Вхідний. Інформація про підпис.</param>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern void EUShowSignInfo(IntPtr signInfo);
 
+    /// <summary>
+    /// Вивільнення інформації про підпис.
+    /// </summary>
+    /// <param name="pSignInfo">Вхідний (PEU_SIGN_INFO). Вказівник на дані щодо інформації про підпис.</param>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern void EUFreeSignInfo(IntPtr signInfo);
 
+    /// <summary>
+    /// Вивільнення пам’яті, що виділяється автоматично бібліотекою.
+    /// </summary>
+    /// <param name="pbMemory">Вхідний (PBYTE). Вказівник на дані для вивільнення.</param>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern void EUFreeMemory(IntPtr memory);
 
+    /// <summary>
+    /// Отримання опису помилки за кодом.
+    /// </summary>
+    /// <param name="dwError">Вхідний (DWORD). Код помилки.</param>
+    /// <returns>(PSTR) Опис помилки.</returns>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern IntPtr EUGetErrorDesc(DWORD error);
 
@@ -655,28 +707,77 @@ public partial class IEUSignCP
     [DllImport(EU_LIBRARY_NAME)]
     private static extern void EUResetOperation();
 
+    /// <summary>
+    /// Формування ЕЦП файлу (Примітка: Розмір файла не обмежений).
+    /// </summary>
+    /// <param name="pszFileName">Вхідний (PSTR). Ім'я файлу з даними.</param>
+    /// <param name="pszFileNameWithSign">Вхідний (PSTR). Ім’я файлу, в який необхідно записати
+    /// підпис (якщо тип підпису зовнішній) або підписані дані (якщо тип підпису внутрішній).</param>
+    /// <param name="bExternalSign">Вхідний (BOOL). Тип ЕЦП (зовнішний або внутрішній).</param>
+    /// <returns>(DWORD) Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern DWORD EUSignFile(IntPtr fileName,
         IntPtr fileNameWithsign, BOOL Externalsign);
 
+    /// <summary>
+    /// Перевірка ЕЦП файлу (Примітка: Розмір файла не обмежений).
+    /// </summary>
+    /// <param name="pszFileNameWithSign">Вхідний (PSTR). Ім'я файлу 
+    /// з підписом (якщо тип підпису зовнішній) або з підписаними даними (якщо тип підпису внутрішній).</param>
+    /// <param name="pszFileName">Вхідний (PSTR). Ім'я файлу 
+    /// з даними (якщо тип підпису зовнішній) або ім'я файлу, в який необхідно записати дані (якщо тип підпису внутрішній).</param>
+    /// <param name="pSignInfo">Вихідний (PEU_SIGN_INFO). Інформація про підпис.</param>
+    /// <returns>(DWORD) Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern DWORD EUVerifyFile(IntPtr fileNameWithsign,
         IntPtr fileName, IntPtr signInfo);
 
+    /// <summary>
+    /// Формування внутрішнього (підпис знаходиться разом з даними) ЕЦП.
+    /// </summary>
+    /// <param name="bAppendCert">Вхідний (BOOL). Включати сертифікат підписувача у підписані дані.</param>
+    /// <param name="pbData">Вхідний (PBYTE). Дані для підпису.</param>
+    /// <param name="dwDataLength">Вхідний(DWORD). Розмір даних для підпису.</param>
+    /// <param name="ppszSignedData">Вихідний (PSTR). Підписані дані у вигляді BASE64-строки (пам'ять виділяється автоматично).
+    /// Якщо параметр дорівнює 0, повертається у вигляді масиву байт.</param>
+    /// <param name="ppbSignedData">Вихідний (PBYTE). Підписані дані у вигляді масиву байт (пам'ять виділяється автоматично).</param>
+    /// <param name="pdwSignedDataLength">Вихідний (PDWORD). Розмір підписаних даних у вигляді масиву байт.</param>
+    /// <returns>(DWORD) Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern DWORD EUSignDataInternal(BOOL appendCert,
         IntPtr data, DWORD dataLength, IntPtr signedDataString,
         IntPtr signedDataBinary, IntPtr signedDataBinaryLength);
 
+    /// <summary>
+    /// Перевірка внутрішнього ЕЦП.
+    /// </summary>
+    /// <param name="pszSignedData">Вхідний (PSTR). Підписані дані для перевірки у вигляді BASE64-строки.
+    /// Якщо  параметр дорівнює 0, перевіряються підписані дані у вигляді масиву байт.</param>
+    /// <param name="pbSignedData">Вхідний (PBYTE). Підписані дані у вигляді масиву байт.</param>
+    /// <param name="dwSignedDataLength">Вхідний (DWORD). Розмір підписаних даних у вигляді масиву байт.</param>
+    /// <param name="ppbData">Вихідний (PBYTE). Отримані після перевірки ЕЦП дані.</param>
+    /// <param name="pdwDataLength">Вихідний (PDWORD). Розмір отриманих після перевірки ЕЦП даних.</param>
+    /// <param name="pSignInfo">Вихідний (PEU_SIGN_INFO). Інформація про підпис.</param>
+    /// <returns>(DWORD) Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern DWORD EUVerifyDataInternal(
         IntPtr signedDataString, IntPtr signedDataBinary,
         DWORD signedDataBinaryLength, IntPtr data, IntPtr dataLength,
         IntPtr signInfo);
 
+    /// <summary>
+    /// Отримання інформації про обраний за допомогою графічного інтерфейсу сертифікат.
+    /// </summary>
+    /// <param name="pCertOwnerInfo">Вихідний (PEU_CERT_OWNER_INFO). Інформація про сертифікат.</param>
+    /// <returns></returns>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern DWORD EUSelectCertificateInfo(IntPtr certInfo);
 
+    /// <summary>
+    /// Встановлення режиму використання графічного інтерфейсу у разі виникнення помилок. 
+    /// Якщо викливається до функції ініціалізації бібліотеки Initialize, бібліотеку буде завантажено без графічного модуля.
+    /// </summary>
+    /// <param name="bUIMode">Вхідний (BOOL). Режим використання графічного інтерфейсу у разі виникнення помилок</param>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern void EUSetUIMode(BOOL uiMode);
 
@@ -873,20 +974,52 @@ public partial class IEUSignCP
     private static extern DWORD EUBASE64Decode(IntPtr dataString, IntPtr dataBinary,
         IntPtr dataBinaryLength);
 
+    /// <summary>
+    /// Зашифрування даних.
+    /// </summary>
+    /// <param name="pszRecipientCertIssuer">Вхідний (PSTR). Реквізити ЦСК сертифіката одержувача.</param>
+    /// <param name="pszRecipientCertSerial">Вхідний (PSTR). Серійний номер сертифіката одержувача.</param>
+    /// <param name="bSignData">Вхідний (BOOL). Признак необхідності додатково підписувати дані.</param>
+    /// <param name="pbData">Вхідний (PBYTE). Дані для зашифрування у вигляді масиву байт.</param>
+    /// <param name="dwDataLength">Вхідний (DWORD). Розмір даних у вигляді масиву байт.</param>
+    /// <param name="ppszEnvelopedData">Вихідний (PSTR). Зашифровані дані у вигляді BASE64-строки (пам'ять виділяється автоматично). 
+    /// Якщо параметр дорівнює 0, зашифровані дані повертаються у вигляді масиву байт.</param>
+    /// <param name="ppbEnvelopedData">Вихідний (PBYTE). Зашифровані дані у вигляді масиву байт (пам'ять виділяється автоматично).</param>
+    /// <param name="pdwEnvelopedDataLength">Вихідний (PDWORD). Розмір зашифрованих даних у вигляді масиву байт.</param>
+    /// <returns>(DWORD) Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern DWORD EUEnvelopData(IntPtr recipientCertIssuer,
         IntPtr recipientCertSerial, BOOL signData, IntPtr data, DWORD dataLength,
         IntPtr envelopedDataString, IntPtr envelopedDataBinary,
         IntPtr envelopedDataBinaryLength);
 
+    /// <summary>
+    /// Розшифрування даних.
+    /// </summary>
+    /// <param name="pszEnvelopedData">Вхідний (PSTR). Зашифровані дані у вигляді BASE64-строки.
+    /// Якщо параметр дорівнює 0, зашифровані дані передаються у вигляді масиву байт.</param>
+    /// <param name="pbEnvelopedData">Вхідний (PBYTE). Зашифровані дані у вигляді масиву байт.</param>
+    /// <param name="dwEnvelopedDataLength">Вхідний (DWORD). Розмір зашифрованих даних у вигляді масиву байт.</param>
+    /// <param name="ppbData">Вихідний (PBYTE). Розшифровані дані для у вигляді масиву байт.</param>
+    /// <param name="pdwDataLength">Вихідний (PDWORD). Розмір розшифрованих даних у вигляді масиву байт.</param>
+    /// <param name="pEnvelopInfo">Вихідний (PEU_SENDER_INFO). Інформація про відправника зашифрованих даних.</param>
+    /// <returns>(DWORD) Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern DWORD EUDevelopData(IntPtr envelopedDataString,
         IntPtr envelopedDataBinary, DWORD envelopedDataLength,
         IntPtr data, IntPtr dataLength, IntPtr senderInfo);
 
+    /// <summary>
+    /// Відображення інформації про відправника зашифрованих даних за допомогою графічного інтерфейсу бібліотеки.
+    /// </summary>
+    /// <param name="pSenderInfo">Вхідний (PEU_SENDER_INFO). Інформація про відправника зашифрованих даних.</param>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern void EUShowSenderInfo(IntPtr senderInfo);
 
+    /// <summary>
+    /// Вивільнення інформації про відправника зашифрованих даних.
+    /// </summary>
+    /// <param name="pSenderInfo">Вхідний (PEU_SENDER_INFO). Вказівник на дані щодо інформації про відправника зашифрованих даних.</param>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern void EUFreeSenderInfo(IntPtr senderInfo);
 
@@ -983,6 +1116,13 @@ public partial class IEUSignCP
         IntPtr recipientCertSerial, BOOL signData, IntPtr fileName,
         IntPtr envelopedFileName);
 
+    /// <summary>
+    /// Розшифрування файлу (Примітка: Розмір файла не обмежений).
+    /// </summary>
+    /// <param name="pszEnvelopedFileName">Вхідний (PSTR). Ім'я файлу з зашифрованими даними.</param>
+    /// <param name="pszFileName">Вхідний (PSTR). Ім'я файлу в який необхідно записати розшифровані дані.</param>
+    /// <param name="pEnvelopInfo">Вихідний (PEU_ENVELOP_INFO). Інформація про відправника зашифрованих даних.</param>
+    /// <returns>(DWORD) Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern DWORD EUDevelopFile(IntPtr envelopedFileName,
         IntPtr fileName, IntPtr info);
@@ -993,6 +1133,16 @@ public partial class IEUSignCP
     [DllImport(EU_LIBRARY_NAME)]
     private static extern BOOL EUIsEnvelopedFile(IntPtr fileName);
 
+    /// <summary>
+    /// Отримання сертифіката користувача.
+    /// </summary>
+    /// <param name="pszIssuer">Вхідний (PSTR). Реквізити ЦСК.</param>
+    /// <param name="pszSerial">Вхідний (PSTR). Серійний номер сертифіката.</param>
+    /// <param name="ppszCertificate">Вихідний (PSTR). Сертифікат у вигляді BASE64-строки. 
+    /// Якщо параметр дорівнює 0, сертифікат повертається у вигляді масиву байт.</param>
+    /// <param name="ppbCertificate">Вихідний (PBYTE). Сертифікат у вигляді масиву байт.</param>
+    /// <param name="pdwCertificateLength">Вихідний (PDWORD). Розмір сертифіката вигляді масиву байт</param>
+    /// <returns>(DWORD) Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern DWORD EUGetCertificate(IntPtr issuer, IntPtr serial,
         IntPtr pCertificate, IntPtr pCertificateBinary, IntPtr pCertificateBinaryLength);
@@ -1001,19 +1151,46 @@ public partial class IEUSignCP
     private static extern DWORD EUGetOwnCertificate(IntPtr pCertificate,
         IntPtr pCertificateBinary, IntPtr pCertificateBinaryLength);
 
+    /// <summary>
+    /// Перелічення наявних сертифікатів користувача.
+    /// </summary>
+    /// <param name="dwIndex">Вхідний (DWORD). Індекс сертифіката (нумераця з 0).</param>
+    /// <param name="ppCertInfoEx">Вихідний (PPEU_CERT_INFO_EX). Інформація про сертифікат (розширена). 
+    /// Якщо параметр дорівнює 0, сертифіката та послідуючих сертифікатів не існує.</param>
+    /// <returns>(DWORD) Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern DWORD EUEnumOwnCertificates(DWORD index, IntPtr info);
 
+    /// <summary>
+    /// Отримання детальної інформації(розширеної) про сертифікат.
+    /// </summary>
+    /// <param name="pszIssuer">Вхідний (PSTR). Реквізити ЦСК.</param>
+    /// <param name="pszSerial">Вхідний (PSTR). Серійний номер сертифіката.</param>
+    /// <param name="ppCertInfoEx">Вихідний (PPEU_CERT_INFO_EX). Інформація про сертифікат (розширена).</param>
+    /// <returns>(DWORD) Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern DWORD EUGetCertificateInfoEx(IntPtr issuer, IntPtr serial,
         IntPtr pInfo);
 
+    /// <summary>
+    /// Вивільнення пам'яті з детальною інформацією (розширеною) про сертифікат.
+    /// </summary>
+    /// <param name="pCertInfoEx">Вхідний (PEU_CERT_INFO_EX). Вказівник на дані щодо інформації про сертифікат (розширена).</param>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern void EUFreeCertificateInfoEx(IntPtr info);
 
+    /// <summary>
+    /// Отримання інформації про сертифікати користувачів для направленого шифрування за допомогою графічного інтерфейсу бібліотеки.
+    /// </summary>
+    /// <param name="pCertificates">Вихідний (PPEU_CERTIFICATES). Інформація про сертифікати користувачів для направленого шифрування.</param>
+    /// <returns>(DWORD) Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern DWORD EUGetReceiversCertificates(IntPtr pCertificates);
 
+    /// <summary>
+    /// Вивільнення пам’яті з інформацією про сертифікати користувачів для направленого шифрування.
+    /// </summary>
+    /// <picates>Вхідний (PEU_CERTIFICATES). Вказівник на дані щодо сертифікатів користувачів для направленого шифрування.</param>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern void EUFreeReceiversCertificates(IntPtr certificates);
 
@@ -1190,6 +1367,21 @@ public partial class IEUSignCP
         BOOL signData, IntPtr data, DWORD dataLength,
         IntPtr envelopedDataString, IntPtr envelopedDataBinary, IntPtr envelopedDataBinaryLength);
 
+    /// <summary>
+    /// Зашифрування файла одночасно на декількох одержувачів. 
+    /// Файл зашифровується з використанням ключа ГОСТ-28147, після чого ключ зашифровується направлено для кожного з абонентів
+    /// (Примітка: Розмір файла не обмежений).
+    /// </summary>
+    /// <param name="pszRecipientCertIssuers">Вхідний (PSTR). Реквізити ЦСК сертифікатів одержувачів
+    /// перелічені в рядку з символом-роздільником "\0". Рядок повинен закінчуватися "\0". 
+    /// Якщо кілкість реквізитів ЦСК менша за кількість серійних номерів сертифікатів одержувачів 
+    /// останній реквізит ЦСК в рядку буде використано для серійних номерів, що лишилися.</param>
+    /// <param name="pszRecipientCertSerials">Вхідний (PSTR). Серійні номера сертифікатів одержувачів
+    /// перелічені в рядку з символом-роздільником "\0". Рядок повинен закінчуватися "\0".</param>
+    /// <param name="bSignData">Вхідний (BOOL). Признак необхідності додатково підписувати дані.</param>
+    /// <param name="pszFileName">Вхідний (PSTR). Ім'я файлу з даними.</param>
+    /// <param name="pszEnvelopedFileName">Вхідний. Ім'я файлу, в який необхідно записати зашифровані дані.</param>
+    /// <returns></returns>
     [DllImport(EU_LIBRARY_NAME)]
     private static extern DWORD EUEnvelopFileEx(
         IntPtr recipientCertIssuers, IntPtr recipientCertSerials,
@@ -27083,7 +27275,7 @@ public partial class IEUSignCP
     #region EUSignCP: Public section
 
     #region EUSignCP: General function
-    #if __ANDROID__
+#if __ANDROID__
     public static void SetUSBDevice(int fd, byte[] descriptors)
     {
         int error;
@@ -27103,6 +27295,10 @@ public partial class IEUSignCP
     }
 #endif // __ANDROID__
 
+    /// <summary>
+    /// Ініціалізація бібліотеки.
+    /// </summary>
+    /// <returns>Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     public static int Initialize()
     {
         int error;
@@ -27115,6 +27311,9 @@ public partial class IEUSignCP
     }
 
 #pragma warning disable 0465
+    /// <summary>
+    /// Завершення роботи з бібліотекою.
+    /// </summary>
     public static void Finalize()
 #pragma warning restore 0465
     {
@@ -27125,6 +27324,10 @@ public partial class IEUSignCP
             RaiseError(error);
     }
 
+    /// <summary>
+    /// Перевірка стану бібліотеки.
+    /// </summary>
+    /// <returns>Значення true, якщо бібліотека завантажена; в іншому випадку - значення false.</returns>
     public static bool IsInitialized()
     {
         int error;
@@ -27155,6 +27358,11 @@ public partial class IEUSignCP
             RaiseError(error);
     }
 
+    /// <summary>
+    /// Отримання опису помилки за кодом.
+    /// </summary>
+    /// <param name="error">Код помилки.</param>
+    /// <returns>Опис помилки.</returns>
     public static string GetErrorDesc(int error)
     {
         return _GetErrorDesc(error);
@@ -27286,6 +27494,9 @@ public partial class IEUSignCP
         return setSettings;
     }
 
+    /// <summary>
+    /// Встановлення параметрів роботи з бібліотекою за допомогою графічного інтерфейсу бібліотеки.
+    /// </summary>
     public static void SetSettings()
     {
         int error;
@@ -27329,6 +27540,10 @@ public partial class IEUSignCP
         return error;
     }
 
+    /// <summary>
+    /// Встановлення режиму використання графічного інтерфейсу у разі виникнення помилок. 
+    /// </summary>
+    /// <param name="uiMode">Значення true - з графічним інтерфейсом; значення false - без графічного інтерфейсу.</param>
     public static void SetUIMode(bool uiMode)
     {
         int error;
@@ -27803,6 +28018,11 @@ public partial class IEUSignCP
             RaiseError(error);
     }
 
+    /// <summary>
+    /// Отримання інформації про обраний за допомогою графічного інтерфейсу сертифікат.
+    /// </summary>
+    /// <param name="certOwnerInfo">Інформація про сертифікат.</param>
+    /// <returns>Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     public static int SelectCertInfo(
         out EU_CERT_OWNER_INFO certOwnerInfo)
     {
@@ -27856,6 +28076,13 @@ public partial class IEUSignCP
         return error;
     }
 
+    /// <summary>
+    /// Отримання детальної інформації(розширеної) про сертифікат.
+    /// </summary>
+    /// <param name="issuer">Реквізити ЦСК.</param>
+    /// <param name="serial">Серійний номер сертифіката.</param>
+    /// <param name="certInfoEx">Інформація про сертифікат (розширена).</param>
+    /// <returns>Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     public static int GetCertificateInfoEx(
         string issuer, string serial,
         out EU_CERT_INFO_EX certInfoEx)
@@ -27870,6 +28097,13 @@ public partial class IEUSignCP
         return error;
     }
 
+    /// <summary>
+    /// Отримання сертифіката користувача.
+    /// </summary>
+    /// <param name="issuer">Реквізити ЦСК.</param>
+    /// <param name="serial">Серійний номер сертифіката.</param>
+    /// <param name="certificate">Сертифікат у вигляді масиву байт.</param>
+    /// <returns>Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     public static int GetCertificate(
         string issuer, string serial,
         out byte[] certificate)
@@ -28094,6 +28328,9 @@ public partial class IEUSignCP
         return error;
     }
 
+    /// <summary>
+    /// Відображення власного сертифіката за допомогою графічного інтерфейсу бібліотеки.
+    /// </summary>
     public static void ShowOwnCertificate()
     {
         int error;
@@ -28103,6 +28340,13 @@ public partial class IEUSignCP
             RaiseError(error);
     }
 
+    /// <summary>
+    /// Перелічення наявних сертифікатів користувача.
+    /// </summary>
+    /// <param name="index">Індекс сертифіката (нумерація з 0)</param>
+    /// <param name="ownCertificate">Інформація про сертифікат. 
+    /// Якщо структура не заповнена (ownCertificate.filled = false), то сертифіката і послідуючих сертифікатів не існує.</param>
+    /// <returns>Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     public static int EnumOwnCertificates(int index,
         out EU_CERT_INFO_EX certInfo)
     {
@@ -28472,6 +28716,10 @@ public partial class IEUSignCP
         return error;
     }
 
+    /// <summary>
+    /// Перевірка наявності зчитаного особистого ключа.
+    /// </summary>
+    /// <returns>Значення true, якщо ключ вже зчитано у пам'ять; в іншому випадку - значення false.</returns>
     public static bool IsPrivateKeyReaded()
     {
         int error;
@@ -28484,6 +28732,9 @@ public partial class IEUSignCP
         return isPrivKeyReaded;
     }
 
+    /// <summary>
+    /// Затирання особистого ключа у пам’яті.
+    /// </summary>
     public static void ResetPrivateKey()
     {
         int error;
@@ -28493,6 +28744,12 @@ public partial class IEUSignCP
             RaiseError(error);
     }
 
+    /// <summary>
+    /// Зчитування особистого ключа за допомогою графічного інтерфейсу бібліотеки.
+    /// </summary>
+    /// <param name="keyMedia">Носій звідки треба прочитати інформацію про сертифікат.</param>
+    /// <param name="certOwnerInfo">Вихідний. Інформація про сертифікат власника.</param>
+    /// <returns>Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     public static int ReadPrivateKey(EU_KEY_MEDIA keyMedia,
         out EU_CERT_OWNER_INFO certOwnerInfo)
     {
@@ -30984,6 +31241,12 @@ public partial class IEUSignCP
         return error;
     }
 
+    /// <summary>
+    /// Формування ЕЦП файлу (Примітка: Розмір файла не обмежений).
+    /// </summary>
+    /// <param name="fileName">Ім'я файлу з даними.</param>
+    /// <param name="fileNameWithSign">Ім'я файлу, в який необхідно записати підписані дані.</param>
+    /// <returns>Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     public static int SignFile(string fileName,
         string fileNameWithSign, bool externalSign)
     {
@@ -30997,6 +31260,13 @@ public partial class IEUSignCP
         return error;
     }
 
+    /// <summary>
+    /// Перевірка ЕЦП файлу (Примітка: Розмір файла не обмежений).
+    /// </summary>
+    /// <param name="fileNameWithSign">Ім'я файлу з підписаними даними.</param>
+    /// <param name="fileName">Ім'я файлу, в який необхідно записати дані.</param>
+    /// <param name="signInfo">Інформація про підпис.</param>
+    /// <returns>Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     public static int VerifyFile(string fileNameWithSign,
         string fileName, out EU_SIGN_INFO signInfo)
     {
@@ -31026,6 +31296,14 @@ public partial class IEUSignCP
         return error;
     }
 
+    /// <summary>
+    /// Формування внутрішнього (підпис знаходиться разом з даними) ЕЦП.
+    /// </summary>
+    /// <param name="appendCert">Включати сертифікат підписувача у підписані дані.
+    /// Значення true - включати; значення false - не включати.</param>
+    /// <param name="data">Дані для підпису.</param>
+    /// <param name="signedData">Підписані дані.</param>
+    /// <returns>Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     public static int SignDataInternal(bool appendCert, string data,
         out string signedData)
     {
@@ -31090,6 +31368,13 @@ public partial class IEUSignCP
         return error;
     }
 
+    /// <summary>
+    /// Перевірка внутрішнього ЕЦП.
+    /// </summary>
+    /// <param name="signedData">Підписані дані у вигляді масиву байт.</param>
+    /// <param name="data">Отримані після перевірки ЕЦП дані.</param>
+    /// <param name="signInfo">Інформація про підпис.</param>
+    /// <returns>Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     public static int VerifyDataInternal(string signedData,
         out byte[] data, out EU_SIGN_INFO signInfo)
     {
@@ -35330,6 +35615,14 @@ public partial class IEUSignCP
         return error;
     }
 
+    /// <summary>
+    /// Зашифрування даних.
+    /// </summary>
+    /// <param name="issuer">Реквізити ЦСК сертифіката одержувача.</param>
+    /// <param name="serial">Серійний номер сертифіката одержувача.</param>
+    /// <param name="data">Дані для зашифрування у вигляді масиву байт.</param>
+    /// <param name="envelopeddData">Зашифровані дані у вигляді масиву байт.</param>
+    /// <returns>Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     public static int EnvelopData(
         string recipientCertIssuer, string recipientCertSerial,
         bool signData, string data, out string envelopedData)
@@ -35566,6 +35859,13 @@ public partial class IEUSignCP
         return error;
     }
 
+    /// <summary>
+    /// Розшифрування даних.
+    /// </summary>
+    /// <param name="envelopedData">Зашифровані дані у вигляді масиву байт.</param>
+    /// <param name="data">Розшифровані дані для у вигляді масиву байт.</param>
+    /// <param name="senderInfo">Інформація про відправника зашифрованих даних.</param>
+    /// <returns>Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     public static int DevelopData(string envelopedData,
         out byte[] data, out EU_SENDER_INFO senderInfo)
     {
@@ -35622,6 +35922,13 @@ public partial class IEUSignCP
         return error;
     }
 
+    /// <summary>
+    /// Розшифрування файлу (Примітка: Розмір файла не обмежений).
+    /// </summary>
+    /// <param name="envelopedFileName">Ім'я файлу з зашифрованими даними.</param>
+    /// <param name="fileName">Ім'я файлу в який необхідно записати розшифровані дані.</param>
+    /// <param name="senderInfo">Інформація про відправника зашифрованих даних.</param>
+    /// <returns>Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     public static int DevelopFile(string envelopedFileName,
         string fileName, out EU_SENDER_INFO senderInfo)
     {
@@ -35759,6 +36066,11 @@ public partial class IEUSignCP
         return isEnvelopedFile;
     }
 
+    /// <summary>
+    /// Отримання інформації про сертифікати користувачів для направленого шифрування за допомогою графічного інтерфейсу бібліотеки.
+    /// </summary>
+    /// <param name="certificates">Інформація про сертифікати користувачів для направленого шифрування.</param>
+    /// <returns>Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     public static int GetReceiversCertificates(
         out EU_CERT_INFO_EX[] certificates)
     {
@@ -35936,6 +36248,16 @@ public partial class IEUSignCP
         return error;
     }
 
+    /// <summary>
+    /// Зашифрування файла одночасно на декількох одержувачів (Примітка: Розмір файла не обмежений). 
+    /// Файл зашифровується з використанням ключа ГОСТ-28147, після чого ключ зашифровується направлено для кожного з абонентів.
+    /// </summary>
+    /// <param name="recipientsCertIssuer">Інформація про сертифікати одержувачів.</param>
+    /// <param name="recipientsCertSerial">Інформація про сертифікати одержувачів.</param>
+    /// <param name="signData">Признак необхідності додатково підписувати дані.</param>
+    /// <param name="fileName">Ім'я файлу з даними.</param>
+    /// <param name="envelopedFileName">Ім'я файлу, в який необхідно записати зашифровані дані.</param>
+    /// <returns>Значення 0, якщо виконано без помилок; в іншому випадку - значення коду помилки.</returns>
     public static int EnvelopFileEx(string[] recipientsCertIssuer,
         string[] recipientsCertSerial, bool signData,
         string fileName, string envelopedFileName)
