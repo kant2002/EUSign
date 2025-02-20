@@ -37,160 +37,159 @@ using System.Runtime.InteropServices;
 #pragma warning disable CS8618
 #pragma warning disable CS8625
 
-namespace EUSignCP
-{
+namespace EUSignCP;
+
 #if !OS_NIX
-    using DWORD = System.Int32;
+using DWORD = System.Int32;
 #else // !OS_NIX
-    using DWORD = System.IntPtr;
+using DWORD = System.IntPtr;
 #endif // !OS_NIX
 
-    public partial class IEUSignCP
+public partial class IEUSignCP
+{
+    class EUMarshalArrayOfBytesArrays : IDisposable
     {
-        class EUMarshalArrayOfBytesArrays : IDisposable
+        private bool _disposed = false;
+
+        private EUMarshal _countPtr;
+        private EUMarshal _arraysPtr;
+        private EUMarshal _sizesPtr;
+        private FreeArrayOfBytesArrays _free;
+
+        public delegate void FreeArrayOfBytesArrays(
+            DWORD count, IntPtr arrays, IntPtr arraysSizes);
+
+        public EUMarshalArrayOfBytesArrays(FreeArrayOfBytesArrays free)
         {
-            private bool _disposed = false;
+            _countPtr = new EUMarshal(Marshal.SizeOf(typeof(DWORD)));
+            _arraysPtr = new EUMarshal(Marshal.SizeOf(typeof(IntPtr)));
+            Marshal.WriteIntPtr(_arraysPtr.DataPtr, IntPtr.Zero);
+            _sizesPtr = new EUMarshal(Marshal.SizeOf(typeof(IntPtr)));
+            Marshal.WriteIntPtr(_sizesPtr.DataPtr, IntPtr.Zero);
+            _free = free;
+        }
 
-            private EUMarshal _countPtr;
-            private EUMarshal _arraysPtr;
-            private EUMarshal _sizesPtr;
-            private FreeArrayOfBytesArrays _free;
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
 
-            public delegate void FreeArrayOfBytesArrays(
-                DWORD count, IntPtr arrays, IntPtr arraysSizes);
+        ~EUMarshalArrayOfBytesArrays()
+        {
+            Dispose(false);
+        }
 
-            public EUMarshalArrayOfBytesArrays(FreeArrayOfBytesArrays free)
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed)
+                return;
+
+            FreeData();
+
+            if (disposing)
             {
-                _countPtr = new EUMarshal(Marshal.SizeOf(typeof(DWORD)));
-                _arraysPtr = new EUMarshal(Marshal.SizeOf(typeof(IntPtr)));
-                Marshal.WriteIntPtr(_arraysPtr.DataPtr, IntPtr.Zero);
-                _sizesPtr = new EUMarshal(Marshal.SizeOf(typeof(IntPtr)));
-                Marshal.WriteIntPtr(_sizesPtr.DataPtr, IntPtr.Zero);
-                _free = free;
+                if (_countPtr != null)
+                    _countPtr.Dispose();
+                if (_arraysPtr != null)
+                    _arraysPtr.Dispose();
+                if (_sizesPtr != null)
+                    _sizesPtr.Dispose();
             }
 
-            public void Dispose()
+            _disposed = true;
+        }
+
+        public IntPtr CountPtr
+        {
+            get
             {
-                Dispose(true);
-                GC.SuppressFinalize(this);
+                return _countPtr.DataPtr;
+            }
+        }
+
+        public IntPtr ArraysPtr
+        {
+            get
+            {
+                return _arraysPtr.DataPtr;
+            }
+        }
+
+        public IntPtr ArraysLengthesPtr
+        {
+            get
+            {
+                return _sizesPtr.DataPtr;
+            }
+        }
+
+        public byte[][] GetBinaryDataArrays(bool freeData)
+        {
+            byte[][] arrays;
+
+            int count = _countPtr.GetDWORDData(false);
+            IntPtr arraysPtr = _arraysPtr.GetPointerData(false);
+            IntPtr sizesPtr = _sizesPtr.GetPointerData(false);
+            IntPtr arrayPtr;
+            int arraySize;
+            byte[] array;
+
+            arrays = new byte[count][];
+
+            try
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    arraysPtr = EUMarshal.ReadIntPtr(arraysPtr, out arrayPtr);
+                    sizesPtr = EUMarshal.ReadDWORD(sizesPtr, out arraySize);
+                    array = new byte[arraySize];
+                    Marshal.Copy(arrayPtr, array, 0, arraySize);
+
+                    arrays[i] = array;
+                }
+            }
+            catch (Exception)
+            {
+                throw new EUSignCPException(
+                    IEUSignCP.EU_ERROR_MEMORY_ALLOCATION);
             }
 
-            ~EUMarshalArrayOfBytesArrays()
-            {
-                Dispose(false);
-            }
-
-            protected virtual void Dispose(bool disposing)
-            {
-                if (_disposed)
-                    return;
-
+            if (freeData)
                 FreeData();
 
-                if (disposing)
-                {
-                    if (_countPtr != null)
-                        _countPtr.Dispose();
-                    if (_arraysPtr != null)
-                        _arraysPtr.Dispose();
-                    if (_sizesPtr != null)
-                        _sizesPtr.Dispose();
-                }
+            return arrays;
+        }
 
-                _disposed = true;
-            }
-
-            public IntPtr CountPtr
+        public void FreeData()
+        {
+            if (_countPtr != null && _arraysPtr != null && _sizesPtr != null)
             {
-                get
+                try {
+                    _free((DWORD)_countPtr.GetDWORDData(),
+                        _arraysPtr.GetPointerData(),
+                        _sizesPtr.GetPointerData());
+                } catch (Exception)
                 {
-                    return _countPtr.DataPtr;
                 }
             }
 
-            public IntPtr ArraysPtr
+            if (_countPtr != null)
             {
-                get
-                {
-                    return _arraysPtr.DataPtr;
-                }
+                _countPtr.Dispose();
+                _countPtr = null;
             }
 
-            public IntPtr ArraysLengthesPtr
+            if (_arraysPtr != null)
             {
-                get
-                {
-                    return _sizesPtr.DataPtr;
-                }
+                _arraysPtr.Dispose();
+                _arraysPtr = null;
             }
 
-            public byte[][] GetBinaryDataArrays(bool freeData)
+            if (_sizesPtr != null)
             {
-                byte[][] arrays;
-
-                int count = _countPtr.GetDWORDData(false);
-                IntPtr arraysPtr = _arraysPtr.GetPointerData(false);
-                IntPtr sizesPtr = _sizesPtr.GetPointerData(false);
-                IntPtr arrayPtr;
-                int arraySize;
-                byte[] array;
-
-                arrays = new byte[count][];
-
-                try
-                {
-                    for (int i = 0; i < count; i++)
-                    {
-                        arraysPtr = EUMarshal.ReadIntPtr(arraysPtr, out arrayPtr);
-                        sizesPtr = EUMarshal.ReadDWORD(sizesPtr, out arraySize);
-                        array = new byte[arraySize];
-                        Marshal.Copy(arrayPtr, array, 0, arraySize);
-
-                        arrays[i] = array;
-                    }
-                }
-                catch (Exception)
-                {
-                    throw new EUSignCPException(
-                        IEUSignCP.EU_ERROR_MEMORY_ALLOCATION);
-                }
-
-                if (freeData)
-                    FreeData();
-
-                return arrays;
-            }
-
-            public void FreeData()
-            {
-                if (_countPtr != null && _arraysPtr != null && _sizesPtr != null)
-                {
-                    try {
-                        _free((DWORD)_countPtr.GetDWORDData(),
-                            _arraysPtr.GetPointerData(),
-                            _sizesPtr.GetPointerData());
-                    } catch (Exception)
-                    {
-                    }
-                }
-
-                if (_countPtr != null)
-                {
-                    _countPtr.Dispose();
-                    _countPtr = null;
-                }
-
-                if (_arraysPtr != null)
-                {
-                    _arraysPtr.Dispose();
-                    _arraysPtr = null;
-                }
-
-                if (_sizesPtr != null)
-                {
-                    _sizesPtr.Dispose();
-                    _sizesPtr = null;
-                }
+                _sizesPtr.Dispose();
+                _sizesPtr = null;
             }
         }
     }
